@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637794812142966496
-    m_Hash: 1293629484
+      ticks: 637794303170000000
+    m_Hash: 878303628
   m_LockFileStatus:
     m_FilePath: C:/Users/Josh/Documents/------)/University/(Advanced Games) Final/SupplyChainFinal/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637794812142966496
-    m_Hash: 975464828
+      ticks: 637794303170000000
+    m_Hash: 2120998384
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
