@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     float camRotation = 0f;
 
     float mouseSensitivity = 400f;
-    float movementSpeed = 10;
+    [SerializeField] float movementSpeed = 10;
 
     [Header("Smoothing\n")]
     // Player movement
@@ -50,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
     {
         movement();
         lookAtMouse();
+
+        NearbyCraftableItem();
     }
 
     void movement()
@@ -78,42 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Character controller handles movement and collision
         controller.Move(move);
-
-        //--------------------------------------------------------------
-
-        /*float horizontal = Input.GetAxis("Horizontal") * movementSpeed;
-        float vertical = Input.GetAxis("Vertical") * movementSpeed;
-        Vector3 move = transform.right * horizontal + transform.forward * vertical;
-
-        if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
-        {
-            curDir.y = jumpForce;
-        }
-        else curDir.y += gravity * Time.deltaTime;
-
-        controller.Move(move.normalized * movementSpeed * Time.deltaTime);
-        controller.Move(curDir * Time.deltaTime);*/
-
-        //--------------------------------------------------------------
     }
-
-    //--------------------------------------------------------------
-
-    /*Vector2 target = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-    curDir = Vector2.SmoothDamp(curDir, target, ref curDirVelocity, Smoothment);
-
-    Vector3 move = (transform.right * curDir.x + transform.forward * curDir.y + Vector3.up * yVel) * Time.deltaTime;
-
-    if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
-    {
-        move.y = jumpForce;
-    }
-    else yVel += gravity * Time.deltaTime;
-
-    controller.Move(move.normalized * movementSpeed);
-    controller.Move(curDir * Time.deltaTime); */
-
 
     void lookAtMouse()
     {
@@ -135,7 +102,20 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(Vector3.up * curMouseMove.x * mouseSensitivity * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void NearbyCraftableItem()
+    {
+        Collider[] coll = Physics.OverlapBox(transform.position, Vector3.one * 2);
+
+        foreach(Collider c in coll)
+        {
+            if (c.gameObject.GetComponent<Thing>() != null)
+            {
+                c.transform.position = Vector3.MoveTowards(c.transform.position, gameObject.transform.position, 3 * Time.deltaTime);
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
     {
         GameplayUI.inst.GameIs(other.gameObject == winCollider, 2);
     }
@@ -149,6 +129,11 @@ public class PlayerMovement : MonoBehaviour
             healthBarValue.fillAmount = a / 100;
 
             GameplayUI.inst.GameIs(healthBarValue.fillAmount == 0, 1);
+        }
+
+        if (collision.transform.GetComponent<Thing>() != null)
+        {
+            Destroy(collision.gameObject);
         }
     }
 }
