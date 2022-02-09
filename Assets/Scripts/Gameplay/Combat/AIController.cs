@@ -1,11 +1,11 @@
-using SCG.Combat;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
-public class AIController : MonoBehaviour
+public class AIController : MonoBehaviour,idamage
 {
     Vector3 startingPosition;
     Vector3 rand;
@@ -20,6 +20,26 @@ public class AIController : MonoBehaviour
 
     // (btw, the speed is declared through the 'NavMeshAgent' component's speed script)
 
+    [SerializeField]
+    Component healthbar;
+    [SerializeField]
+    Text tex;
+    [SerializeField]
+    int health2 = 70;
+    [SerializeField]
+    int minhealth = 0;
+    [SerializeField]
+    int maxhealth = 100;
+
+
+    RaycastHit obj;
+    [SerializeField]
+    float hitrange = 6.0f;
+    float lasthit = 0.0f;
+    [SerializeField]
+    int damage = -10;
+    [SerializeField]
+    float hitcooldown = 1.0f;
     enum enemyStatus
     {
         Patrol,
@@ -31,7 +51,7 @@ public class AIController : MonoBehaviour
     void Awake()
     {
         startingPosition = transform.position;
-        player = FindObjectOfType<PlayerMovement>().transform;
+        player = FindObjectOfType<move>().transform;
         NMA = GetComponent<NavMeshAgent>();
         RandomLocation();
 
@@ -41,6 +61,8 @@ public class AIController : MonoBehaviour
 
     void Start()
     {
+        updatehealth();
+        tex.text =health2 + "%";
         health.GetChild(0).transform.rotation = new Quaternion(0, 180, 0, 0);
     }
 
@@ -61,6 +83,18 @@ public class AIController : MonoBehaviour
 
             case enemyStatus.PlayerSighted:
                 NMA.destination = player.position;
+                if (Physics.Raycast(transform.position, transform.forward, out obj, hitrange))
+                {
+                    if (obj.transform.GetComponent<idamage>() != null)
+                    {
+                        idamage att = obj.transform.GetComponent<idamage>();
+                        if (Time.time > lasthit + hitcooldown)
+                        {
+                            att.addhealth(damage);
+                            lasthit = Time.time;
+                        }
+                    }
+                }
                 break;
         }
     }
@@ -101,6 +135,18 @@ public class AIController : MonoBehaviour
             }
             movingTime += Time.deltaTime;
         }
+    }
+    public void addhealth(int amount)
+    {
+        health2 += amount;
+        if (health2 < minhealth) health2 = minhealth;
+        if (health2 > maxhealth) health2 = maxhealth;
+        tex.text = health2 + "%";
+        updatehealth();
+    }
+    void updatehealth()
+    {
+        healthbar.transform.localScale = new Vector3((float)(health2 - minhealth) / (maxhealth - minhealth), 1.0f);
     }
 }
 
