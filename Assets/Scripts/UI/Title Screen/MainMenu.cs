@@ -5,68 +5,79 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-namespace SCG.MainMenu
+public class MainMenu : MonoBehaviour
 {
-    public class MainMenu : MonoBehaviour
+    public Text anP1Text;
+    public Text aNP2Text;
+    static public MainMenu inst;
+
+    public enum MenuState
     {
-        [SerializeField] AudioClip buttonOver;
-        [SerializeField] AudioClip buttonSelected;
-        [SerializeField] AudioClip buttonTransfer;
-        [SerializeField] AudioSource bgm;
-        [SerializeField] AudioSource soundEffects;
-        [SerializeField] Text musicPercentage;
-        [SerializeField] Text sePercentage;
-        [SerializeField] Slider musicSlider;
-        [SerializeField] Slider seSlider;
-        [SerializeField] GameObject options;
+        TitleScreen,
+        MainMenu
+    }
 
-        void Start()
+    public MenuState menuState = MenuState.TitleScreen;
+
+    void Awake()
+    {
+        SwitchState(menuState);
+        Time.timeScale = 1.0f;
+        inst = this;
+    }
+
+    public void PlayStage()
+    {
+        // Camera Goes to Door
+        // Door slowly opens
+
+        SceneManager.LoadScene(1);
+    }
+
+    public void StageSelector()
+    {
+        // Stage selector screen opens
+        // UI Focuses on Map
+
+        Debug.Log("Stage Selector");
+    }
+
+    public void Crafting()
+    {
+        Debug.Log("Crafting");
+    }
+
+    public void Scenery()
+    {
+        Debug.Log("Scenery");
+    }
+
+    public void Options()
+    {
+        Debug.Log("Options");
+    }
+
+    public void Credits()
+    {
+        Debug.Log("Credits");
+    }
+
+    public void ExitGame()
+    {
+        Debug.Log("Exit Game");
+    }
+
+    public void SwitchState(MenuState newState)
+    {
+        switch (newState)
         {
-            Time.timeScale = 1;
+            case MenuState.TitleScreen:
+                gameObject.SetActive(false);
+                break;
 
-            options.gameObject.SetActive(true);
-            musicSlider.value = GlobalScript.musicVolume;
-            seSlider.value = GlobalScript.soundEffectsVolume;
-            options.gameObject.SetActive(false);
-
-            GlobalScript.Volume(musicSlider, musicPercentage, ref GlobalScript.musicVolume, bgm);
-            GlobalScript.Volume(seSlider, sePercentage, ref GlobalScript.soundEffectsVolume, soundEffects);
-
-            musicSlider.onValueChanged.AddListener(delegate { GlobalScript.Volume(musicSlider,musicPercentage, ref GlobalScript.musicVolume, bgm); });
-            seSlider.onValueChanged.AddListener(delegate { GlobalScript.Volume(seSlider, sePercentage, ref GlobalScript.soundEffectsVolume, soundEffects); });
-        }
-
-        public void PlayGame()
-        {
-            soundEffects.PlayOneShot(buttonTransfer);
-            SceneManager.LoadScene(1);
-        }
-
-        public void MenuStatus(Image menu)
-        {
-            GlobalScript.OpenMenu(soundEffects, buttonSelected, menu);
-        }
-
-        public void setAudio()
-        {
-            musicSlider.value = GlobalScript.musicVolume;
-            seSlider.value = GlobalScript.soundEffectsVolume;
-        }
-
-        public void Hovered(Image btn)
-        {
-            GlobalScript.OnButton(btn, GlobalScript.pointed, soundEffects, buttonOver, true);
-        }
-
-        public void Unhovered(Image btn)
-        {
-            GlobalScript.OnButton(btn, GlobalScript.unPointed, null, null, false);
-        }
-
-        public void QuitGame()
-        {
-            soundEffects.PlayOneShot(buttonTransfer);
-            Application.Quit(); 
+            case MenuState.MainMenu:
+                gameObject.SetActive(true);
+                break;
         }
     }
 }

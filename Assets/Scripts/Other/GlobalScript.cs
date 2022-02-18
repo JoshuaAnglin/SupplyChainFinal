@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GlobalScript : MonoBehaviour
 {
+    static public bool SwitchToMainMenu;
+
     static public float musicVolume = 50f;
     static public float soundEffectsVolume = 50f;
 
