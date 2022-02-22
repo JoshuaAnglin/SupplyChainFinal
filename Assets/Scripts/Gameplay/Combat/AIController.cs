@@ -40,6 +40,8 @@ public class AIController : MonoBehaviour,idamage
     int damage = -10;
     [SerializeField]
     float hitcooldown = 1.0f;
+
+    float gothit = 0.0f;
     enum enemyStatus
     {
         Patrol,
@@ -138,11 +140,16 @@ public class AIController : MonoBehaviour,idamage
     }
     public void addhealth(int amount)
     {
-        health2 += amount;
-        if (health2 < minhealth) health2 = minhealth;
-        if (health2 > maxhealth) health2 = maxhealth;
-        tex.text = health2 + "%";
-        updatehealth();
+        if (Time.time > gothit + 0.5f)
+        {
+            health2 += amount;
+            if (health2 < minhealth) health2 = minhealth;
+            if (health2 > maxhealth) health2 = maxhealth;
+            tex.text = health2 + "%";
+            updatehealth();
+            gothit = Time.time;
+            transform.position = transform.position - transform.forward * 2;
+        }
     }
     void updatehealth()
     {

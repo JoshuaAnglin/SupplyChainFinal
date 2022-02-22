@@ -39,6 +39,12 @@ public class move : MonoBehaviour,idamage
     // Update is called once per frame
     void Update()
     {
+        if (Time.time > 10.0f && Time.time < 11.0f)
+        {
+            maxhealth = 400;
+            health = 250;
+            damage = -30;
+        }
         Move();
         Rotate();
         if (Input.GetMouseButton(1))
@@ -56,40 +62,39 @@ public class move : MonoBehaviour,idamage
                 }
             }
         }
-        if (Input.GetKey(KeyCode.Space) && Time.time > lasthit + hitcooldown)
+        if (Input.GetKey(KeyCode.Space))
         {
             List<RaycastHit> names = new List<RaycastHit>();
             for (int n = 0; n < 19; n++)
             {
-                if (n < 19)
+                if (n < 9)
                 {
-                    Vector3 place = transform.forward * n + transform.right * (19 - n);
-                    float dist = Vector3.Distance(transform.position, place);
+                    Vector3 place = transform.forward * n + transform.right * (9 - n);
+                    float dist = Vector3.Distance(transform.position, transform.position + place);
                     //Debug.DrawRay(transform.position, (place) * (5 / dist), Color.yellow, 5.0f);
                     if (Physics.Raycast(transform.position, place, out obj, 7 / dist))
                     {
                         if (obj.transform.GetComponent<idamage>() != null)
                         {
                             idamage att = obj.transform.GetComponent<idamage>();
-                            if (!names.Contains(obj))
-                            {
-                                names.Add(obj);
-                            }
+                            att.addhealth(5);
                         }
                     }
                 }
-                if (n > 19)
+                if (n > 9)
                 {
                     Vector3 place = transform.forward * (n - 10) + -transform.right * (9 - (n - 10));
-                    float dist = Vector3.Distance(transform.position, place);
-                    Debug.DrawRay(transform.position, (place) * (5 / dist), Color.yellow, 5.0f);
+                    float dist = Vector3.Distance(transform.position, transform.position + place);
+                    //Debug.DrawRay(transform.position, (place) * (5 / dist), Color.yellow, 5.0f);
+                    if (Physics.Raycast(transform.position, place, out obj, 7 / dist))
+                    {
+                        if (obj.transform.GetComponent<idamage>() != null)
+                        {
+                            idamage att = obj.transform.GetComponent<idamage>();
+                            att.addhealth(5);
+                        }
+                    }
                 }
-            }
-            foreach (RaycastHit x in names)
-            {
-                Debug.Log(x.transform.name);
-                x.transform.GetComponent<idamage>().addhealth(5);
-                x.transform.position = obj.transform.position + transform.position * 2;
             }
             lasthit = Time.time;
         }

@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\UI\Gameplay\Startup.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\Scripts\move.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\GameplayUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\Scripts\Gameplay\Combat\AIController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Other\CameraFacing.cs" />
+    <Compile Include="Assets\Scripts\idamage.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Combat\PatrolPath.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
@@ -121,8 +123,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\Scripts\move.cs" />
-    <Compile Include="Assets\Scripts\idamage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Sounds\Sound Effects\Notes.txt" />
