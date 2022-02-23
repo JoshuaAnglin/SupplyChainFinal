@@ -30,15 +30,7 @@ namespace SCG.Player
                 // If it holds the interface 'IInteractWith'
                 if (obj.transform.GetComponent<IInteractWith>() != null)
                 {
-                    if (obj.transform.GetComponent<Item>() != null)
-                    {
-                        // Change it's layer to 'Hovered
-                        hit = obj.transform;
-                        hit.transform.gameObject.layer = LayerMask.NameToLayer("Hovered");
-
-                        // If the player isn't holding an item, set the raycasted item to 'holding'
-                        if (!holding) holding = obj.transform;
-                    }
+                   
                 }
 
                 else if (hit)
@@ -60,8 +52,7 @@ namespace SCG.Player
         {
             Rigidbody rb = holding.GetComponent<Rigidbody>();
             currentSelectedObject.text = holding.name;
-            rb.velocity = holding.GetComponent<Item>().launchSpeed * (transform.GetChild(0).position - holding.transform.position);
-            rb.freezeRotation = true;
+            
         }
 
         // Dropping items
