@@ -3,18 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] GameObject overview;
+    [SerializeField] GameObject craftingArea;
+    [Space] [Space] [Space]
     public Text anP1Text;
     public Text aNP2Text;
+
+    public Animator vCamAnim;
+    string animState = "AreaState";
+
     static public MainMenu inst;
 
     public enum MenuState
     {
         TitleScreen,
-        MainMenu
+        MainMenu,
+        MainMenuWithinArea
     }
 
     public MenuState menuState = MenuState.TitleScreen;
@@ -26,45 +33,73 @@ public class MainMenu : MonoBehaviour
         inst = this;
     }
 
+    void OnEnable()
+    {
+        GameEventSystem.GES.onWithinAnArea += WithinArea;
+    }
+
+    void OnDisable()
+    {
+        GameEventSystem.GES.onWithinAnArea -= WithinArea;
+    }
+
+    void WithinArea()
+    {
+        overview.SetActive(false);
+    }
+
+    #region 3D Object Buttons
+
     public void PlayStage()
     {
         // Camera Goes to Door
         // Door slowly opens
 
+        GameEventSystem.GES.WithinAnArea();
+        vCamAnim.enabled = true;
         SceneManager.LoadScene(1);
+        vCamAnim.SetInteger(animState, 0);
     }
 
     public void StageSelector()
     {
         // Stage selector screen opens
-        // UI Focuses on Map
-
-        Debug.Log("Stage Selector");
-    }
-
-    public void Crafting()
-    {
-        Debug.Log("Crafting");
-    }
-
-    public void Scenery()
-    {
-        Debug.Log("Scenery");
-    }
-
-    public void Options()
-    {
-        Debug.Log("Options");
-    }
-
-    public void Credits()
-    {
-        Debug.Log("Credits");
+        // UI Focuses on Map   
     }
 
     public void ExitGame()
     {
-        Debug.Log("Exit Game");
+        //GameEventSystem.GES.WithinAnArea();
+        //vCamAnim.SetInteger(animState, 1);
+        Application.Quit();
+    }
+
+    public void Crafting()
+    {
+        GameEventSystem.GES.WithinAnArea();
+        vCamAnim.enabled = true;
+        vCamAnim.SetInteger(animState, 2);
+    }
+
+    public void Options()
+    {
+        GameEventSystem.GES.WithinAnArea();
+        vCamAnim.enabled = true;
+        vCamAnim.SetInteger(animState, 3);
+    }
+
+    public void Scenery()
+    {
+        GameEventSystem.GES.WithinAnArea();
+        vCamAnim.enabled = true;
+        vCamAnim.SetInteger(animState, 4);
+    }
+
+    public void Credits()
+    {
+        GameEventSystem.GES.WithinAnArea();
+        vCamAnim.enabled = true;
+        vCamAnim.SetInteger(animState, 5);
     }
 
     public void SwitchState(MenuState newState)
@@ -78,6 +113,13 @@ public class MainMenu : MonoBehaviour
             case MenuState.MainMenu:
                 gameObject.SetActive(true);
                 break;
+
+            case MenuState.MainMenuWithinArea:
+                break;
         }
     }
+
+    #endregion
+
+    
 }

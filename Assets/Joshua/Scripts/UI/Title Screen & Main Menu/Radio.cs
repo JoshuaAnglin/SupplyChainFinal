@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Radio : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class Radio : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip sound;
     [SerializeField] AudioClip bgm;
-    [SerializeField] Camera cam;
 
     [SerializeField] Renderer RadioScreen;
 
@@ -26,7 +26,7 @@ public class Radio : MonoBehaviour
         if (Input.anyKey && !GlobalScript.SwitchToMainMenu)
         {            
             anim.SetBool("GoToMainMenu", true);
-            cam.GetComponent<Animator>().enabled = true;
+            MainMenu.inst.vCamAnim.enabled = true;
             GlobalScript.SwitchToMainMenu = true;
         }
         else {

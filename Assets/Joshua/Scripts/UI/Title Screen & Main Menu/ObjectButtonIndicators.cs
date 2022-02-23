@@ -8,10 +8,13 @@ public class ObjectButtonIndicators : MonoBehaviour
     [SerializeField] Transform lockedOnObject;
 
     RectTransform rt;
+    Camera cam;
+
 
     void Awake()
     {
         rt = GetComponent<RectTransform>();
+        cam = Camera.main;
     }
 
     void Update()
@@ -19,6 +22,7 @@ public class ObjectButtonIndicators : MonoBehaviour
         var screenLocation = Camera.main.WorldToScreenPoint(lockedOnObject.position);
         rt.position = screenLocation;
 
-        var viewportLocation = Camera.main.WorldToViewportPoint(lockedOnObject.position);
+        Vector3 center = lockedOnObject.GetComponent<Renderer>().bounds.center;
+        var viewportLocation = Camera.main.WorldToViewportPoint(center);
     }
 }
