@@ -57,7 +57,6 @@ namespace SCG.Stats
                         LevelUp.level++;
                         Debug.Log(LevelUp.level);
                         LevelUp.instance.Leveltext.text = "Level: " + LevelUp.level;
-                        Health.instance.GetHealth();
                     }
                 }
             }

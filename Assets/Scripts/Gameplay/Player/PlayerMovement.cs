@@ -1,4 +1,4 @@
-using SCG.Combat;
+
 using SCG.Stats;
 using System.Collections;
 using System.Collections.Generic;
@@ -138,17 +138,5 @@ public class PlayerMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameplayUI.inst.GameIs(other.gameObject == winCollider, 2);
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.GetComponent<Fighter>() != null)
-        {
-            collision.transform.GetComponent<Health>().currentHealthPoints -= 5;
-            float a = (100 / collision.transform.GetComponent<Health>().maxHealthPoints) * collision.transform.GetComponent<Health>().currentHealthPoints;
-            healthBarValue.fillAmount = a / 100;
-
-            GameplayUI.inst.GameIs(healthBarValue.fillAmount == 0, 1);
-        }
     }
 }

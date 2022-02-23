@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using SCG.Combat;
 using SCG.Stats;
 
 namespace SCG.Player
@@ -39,15 +38,6 @@ namespace SCG.Player
 
                         // If the player isn't holding an item, set the raycasted item to 'holding'
                         if (!holding) holding = obj.transform;
-                    }
-                }
-
-                else if (obj.transform.GetComponent<Fighter>() != null)
-                {
-                    if (Input.GetMouseButtonDown(1))
-                    {
-                        Fighter fg = obj.transform.GetComponent<Fighter>();
-                        fg.Attack();
                     }
                 }
 
