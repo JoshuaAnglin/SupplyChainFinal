@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class move : MonoBehaviour,idamage
+public class move : MonoBehaviour
 {
     public CharacterController characterController;
     public float speed = 6;
@@ -13,14 +13,6 @@ public class move : MonoBehaviour,idamage
     public float upLimit = -50;
     public float downLimit = 50;
 
-    [SerializeField]
-    Component healthbar;
-    [SerializeField]
-    int health = 70;
-    [SerializeField]
-    int minhealth = 0;
-    [SerializeField]
-    int maxhealth = 100;
     // Start is called before the first frame update
 
     RaycastHit obj;
@@ -33,7 +25,7 @@ public class move : MonoBehaviour,idamage
     float hitcooldown = 1.0f;
     void Start()
     {
-        updatehealth();
+        
     }
 
     // Update is called once per frame
@@ -121,15 +113,5 @@ public class move : MonoBehaviour,idamage
         currentRotation.x = Mathf.Clamp(currentRotation.x, upLimit, downLimit);
         cameraHolder.localRotation = Quaternion.Euler(currentRotation);
     }
-    void updatehealth()
-    {
-        healthbar.transform.localScale = new Vector3((float)(health - minhealth) / (maxhealth - minhealth), 1.0f);
-    }
-    public void addhealth(int amount)
-    {
-        health += amount;
-        if (health < minhealth) health = minhealth;
-        if (health > maxhealth) health = maxhealth;
-        updatehealth();
-    }
+  
 }

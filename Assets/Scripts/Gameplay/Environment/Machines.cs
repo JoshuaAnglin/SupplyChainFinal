@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SCG.Stats
@@ -21,44 +19,30 @@ namespace SCG.Stats
         {
             if (collision.transform.GetComponent<IInteractWith>() != null)
             {
-                if (collision.transform.GetComponent<Item>().Effect(idReference))
+
+                QuestUpdater();
+                Destroy(collision.gameObject);
+
+                GameplayUI.inst.questComplete.SetActive(true);
+                Pause.inst.soundEffects.PlayOneShot(GameplayUI.inst.questCompleteSound);
+
+                if (links != null)
                 {
-                    foreach(string str in markComplete)
+                    switch (idReference)
                     {
-                        QuestManager.instance.MarkQuestComplete(str);
-                    }
-                    QuestUpdater();
-                    Destroy(collision.gameObject);
+                        case 1:
+                            Destroy(links[0]);
+                            break;
 
-                    GameplayUI.inst.questComplete.SetActive(true);
-                    Pause.inst.soundEffects.PlayOneShot(GameplayUI.inst.questCompleteSound);
-
-                    if (links != null)
-                    {
-                        switch(idReference)
-                        {
-                            case 1:
-                                Destroy(links[0]);
-                                break;
-
-                            case 2:
-                                links[0].SetActive(false);
-                                links[1].SetActive(true);
-                                break;
-                        }
-                    }
-
-                    LevelUp.instance.GetXP(0.5f);
-
-                    if (LevelUp.instance.barImage.fillAmount >= 1)
-                    {
-                        Debug.Log(LevelUp.level);
-                        LevelUp.instance.barImage.fillAmount = 0;
-                        LevelUp.level++;
-                        Debug.Log(LevelUp.level);
-                        LevelUp.instance.Leveltext.text = "Level: " + LevelUp.level;
+                        case 2:
+                            links[0].SetActive(false);
+                            links[1].SetActive(true);
+                            break;
                     }
                 }
+
+
+
             }
         }
     }
