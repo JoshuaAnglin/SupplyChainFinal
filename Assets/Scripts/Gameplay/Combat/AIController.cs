@@ -42,6 +42,7 @@ public class AIController : MonoBehaviour,idamage
     float hitcooldown = 1.0f;
 
     float gothit = 0.0f;
+    int viewcircle = 4;
     enum enemyStatus
     {
         Patrol,
@@ -53,7 +54,7 @@ public class AIController : MonoBehaviour,idamage
     void Awake()
     {
         startingPosition = transform.position;
-        player = FindObjectOfType<move>().transform;
+        player = FindObjectOfType<BasicStats>().transform;
         NMA = GetComponent<NavMeshAgent>();
         RandomLocation();
 
@@ -71,10 +72,36 @@ public class AIController : MonoBehaviour,idamage
     void Update()
     {
         health.LookAt(player);
-
+        status = enemyStatus.Patrol;
+        for (int n = 0; n < 9; n++)
+        {
+            Vector3 place = transform.forward * n + transform.right * (9 - n);
+            float dist = Vector3.Distance(transform.position, transform.position + place);
+            //Debug.DrawRay(transform.position, (place) * (5 / dist), Color.yellow, 5.0f);
+            if (Physics.Raycast(transform.position, place, out obj, 50 / dist))
+            {
+                if (obj.transform.GetComponent<idamage>() != null)
+                {
+                    status = enemyStatus.PlayerSighted;
+                }
+            }
+        }
+        for (int n = 0; n < 9; n++)
+        {
+            Vector3 place = transform.forward * n - transform.right * (9 - n);
+            float dist = Vector3.Distance(transform.position, transform.position + place);
+            //Debug.DrawRay(transform.position, (place) * (5 / dist), Color.yellow, 1.0f);
+            if (Physics.Raycast(transform.position, place, out obj, 50 / dist))
+            {
+                if (obj.transform.GetComponent<idamage>() != null)
+                {
+                    status = enemyStatus.PlayerSighted;
+                }
+            }
+        }
         // PLAYER'S IN RANGE? SWITCH STATES
-        if (Distance(transform.position, player.position) < 10) status = enemyStatus.PlayerSighted;
-        else status = enemyStatus.Patrol;
+        //if (Distance(transform.position, player.position) < 10) status = enemyStatus.PlayerSighted;
+        //else status = enemyStatus.Patrol;
 
         // ENEMY STATE ACTIONS
         switch (status)
@@ -140,6 +167,7 @@ public class AIController : MonoBehaviour,idamage
     }
     public void addhealth(int amount)
     {
+        if (status == enemyStatus.Patrol) amount = amount * 2;
         if (Time.time > gothit + 0.5f)
         {
             health2 += amount;
