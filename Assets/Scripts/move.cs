@@ -102,7 +102,7 @@ public class move : MonoBehaviour
         else VerticalSpeed -= gravity * Time.deltaTime;
         Vector3 gravityMove = new Vector3(0, VerticalSpeed, 0);
 
-        Vector3 move = transform.forward * verticalMove + transform.right * horizontalMove;
+        Vector3 move = transform.forward * verticalMove + transform.right * horizontalMove+ gravityMove;
         characterController.Move(speed * Time.deltaTime * move);
     }
     public void Rotate()
