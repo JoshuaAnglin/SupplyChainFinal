@@ -43,6 +43,7 @@ public class AIController : MonoBehaviour,idamage
 
     float gothit = 0.0f;
     int viewcircle = 4;
+    float find = 0;
     enum enemyStatus
     {
         Patrol,
@@ -83,6 +84,7 @@ public class AIController : MonoBehaviour,idamage
                 if (obj.transform.GetComponent<idamage>() != null)
                 {
                     status = enemyStatus.PlayerSighted;
+                    find = Time.time;
                 }
             }
         }
@@ -96,9 +98,19 @@ public class AIController : MonoBehaviour,idamage
                 if (obj.transform.GetComponent<idamage>() != null)
                 {
                     status = enemyStatus.PlayerSighted;
+                    find = Time.time;
                 }
             }
         }
+        if (Physics.Raycast(transform.position, transform.forward, out obj, 5))
+        {
+            if (obj.transform.GetComponent<idamage>() != null)
+            {
+                status = enemyStatus.PlayerSighted;
+                find = Time.time;
+            }
+        }
+        if (Distance(transform.position, player.position) < 10 && find + 3 > Time.time) status = enemyStatus.PlayerSighted;
         // PLAYER'S IN RANGE? SWITCH STATES
         //if (Distance(transform.position, player.position) < 10) status = enemyStatus.PlayerSighted;
         //else status = enemyStatus.Patrol;
@@ -126,6 +138,8 @@ public class AIController : MonoBehaviour,idamage
                 }
                 break;
         }
+        if (health2 <= 0)
+            gameObject.SetActive(false);
     }
 
     // RETURNS POSITIVE FLOAT OF FIRST AND SECOND
@@ -167,7 +181,7 @@ public class AIController : MonoBehaviour,idamage
     }
     public void addhealth(int amount)
     {
-        if (status == enemyStatus.Patrol) amount = amount * 2;
+        if (status == enemyStatus.Patrol) amount = -maxhealth;
         if (Time.time > gothit + 0.5f)
         {
             health2 += amount;
