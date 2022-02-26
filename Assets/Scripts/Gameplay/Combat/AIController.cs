@@ -30,6 +30,8 @@ public class AIController : MonoBehaviour,idamage
     int minhealth = 0;
     [SerializeField]
     int maxhealth = 100;
+    [SerializeField]
+    GameObject mmm;
 
 
     RaycastHit obj;
@@ -47,7 +49,8 @@ public class AIController : MonoBehaviour,idamage
     enum enemyStatus
     {
         Patrol,
-        PlayerSighted
+        PlayerSighted,
+        OtherSighted
     }
 
     enemyStatus status;
@@ -73,7 +76,7 @@ public class AIController : MonoBehaviour,idamage
     void Update()
     {
         health.LookAt(player);
-        status = enemyStatus.Patrol;
+        status = enemyStatus.Patrol;   
         for (int n = 0; n < 9; n++)
         {
             Vector3 place = transform.forward * n + transform.right * (9 - n);
@@ -110,7 +113,16 @@ public class AIController : MonoBehaviour,idamage
                 find = Time.time;
             }
         }
-        if (Distance(transform.position, player.position) < 10 && find + 3 > Time.time) status = enemyStatus.PlayerSighted;
+        if (Distance(transform.position, player.position) < 7 && find + 1 > Time.time) status = enemyStatus.PlayerSighted;
+        if (status != enemyStatus.PlayerSighted)
+        {
+            for (int n = 0; n < mmm.transform.childCount; n++)
+            {
+                GameObject aaa = mmm.transform.GetChild(n).gameObject;
+                if (aaa.GetComponent<AIController>().change() == "playersighted")
+                    status = enemyStatus.OtherSighted;
+            }
+        }
         // PLAYER'S IN RANGE? SWITCH STATES
         //if (Distance(transform.position, player.position) < 10) status = enemyStatus.PlayerSighted;
         //else status = enemyStatus.Patrol;
@@ -123,6 +135,21 @@ public class AIController : MonoBehaviour,idamage
                 break;
 
             case enemyStatus.PlayerSighted:
+                NMA.destination = player.position;
+                if (Physics.Raycast(transform.position, transform.forward, out obj, hitrange))
+                {
+                    if (obj.transform.GetComponent<idamage>() != null)
+                    {
+                        idamage att = obj.transform.GetComponent<idamage>();
+                        if (Time.time > lasthit + hitcooldown)
+                        {
+                            att.addhealth(damage);
+                            lasthit = Time.time;
+                        }
+                    }
+                }
+                break;
+            case enemyStatus.OtherSighted:
                 NMA.destination = player.position;
                 if (Physics.Raycast(transform.position, transform.forward, out obj, hitrange))
                 {
@@ -181,7 +208,7 @@ public class AIController : MonoBehaviour,idamage
     }
     public void addhealth(int amount)
     {
-        if (status == enemyStatus.Patrol) amount = -maxhealth;
+        if (status == enemyStatus.Patrol) amount = -maxhealth/2;
         if (Time.time > gothit + 0.5f)
         {
             health2 += amount;
@@ -190,12 +217,18 @@ public class AIController : MonoBehaviour,idamage
             tex.text = health2 + "%";
             updatehealth();
             gothit = Time.time;
-            transform.position = transform.position - transform.forward * 2;
+            transform.position = transform.position + player.transform.forward * 2;
         }
     }
     void updatehealth()
     {
         healthbar.transform.localScale = new Vector3((float)(health2 - minhealth) / (maxhealth - minhealth), 1.0f);
+    }
+    public String change()
+    {
+        if (status == enemyStatus.PlayerSighted)
+            return "playersighted";
+        else return "";
     }
 }
 
