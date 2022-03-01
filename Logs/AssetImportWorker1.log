@@ -1,0 +1,987 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.19f1 (68f137dc9bbe) revision 6877495'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19044.1526; Version 2009; 64bit' Language: 'en' Physical Memory: 16222 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.19f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+C:/Users/Josh/Documents/------)/University/(Advanced Games) Final/SupplyChainFinal
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+56837
+Successfully changed project path to: C:/Users/Josh/Documents/------)/University/(Advanced Games) Final/SupplyChainFinal
+C:/Users/Josh/Documents/------)/University/(Advanced Games) Final/SupplyChainFinal
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 77.22 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.19f1 (68f137dc9bbe)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Josh/Documents/------)/University/(Advanced Games) Final/SupplyChainFinal/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2070 with Max-Q Design (ID=0x1f14)
+    Vendor:   
+    VRAM:     8031 MB
+    Driver:   30.0.14.7247
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56860
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.19f1/Editor/Data/PlaybackEngines/LuminSupport/UnityEditor.Lumin.Extensions.dll
+Registered in 0.003926 seconds.
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 68.95 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.972 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1972ms)
+		BeginReloadAssembly (57ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (412ms)
+			LoadAssemblies (56ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (136ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (27ms)
+			SetupLoadedEditorAssemblies (181ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (69ms)
+				BeforeProcessingInitializeOnLoad (13ms)
+				ProcessInitializeOnLoadAttributes (69ms)
+				ProcessInitializeOnLoadMethodAttributes (23ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006819 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 68.34 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.866 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5871ms)
+		BeginReloadAssembly (139ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (17ms)
+		EndReloadAssembly (5665ms)
+			LoadAssemblies (3405ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (913ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (60ms)
+			SetupLoadedEditorAssemblies (1165ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (68ms)
+				BeforeProcessingInitializeOnLoad (104ms)
+				ProcessInitializeOnLoadAttributes (364ms)
+				ProcessInitializeOnLoadMethodAttributes (615ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Refreshing native plugins compatible for Editor in 0.69 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3825 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 186.8 MB.
+System memory in use after: 187.0 MB.
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 4278.
+Total: 3.528600 ms (FindLiveObjects: 0.308500 ms CreateObjectMapping: 0.169500 ms MarkObjects: 2.916700 ms  DeleteObjects: 0.133000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx
+  artifactKey: Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx using Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85988d817ab816bbc339fdb658fc6c55') in 0.266443 seconds 
+  Import took 0.272306 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 163.654892 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/(Diffuse) Finish.png
+  artifactKey: Guid(13b6c3451f62508468319e90117d1cc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/(Diffuse) Finish.png using Guid(13b6c3451f62508468319e90117d1cc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60bd3d29fd356bb5545cc91307aeeea1') in 0.022514 seconds 
+  Import took 0.028393 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.376265 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/(Normal) Finish.png
+  artifactKey: Guid(cdf0c7360915d3c4a86124ca57338ade) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/(Normal) Finish.png using Guid(cdf0c7360915d3c4a86124ca57338ade) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea73f10fc41cdb4af52efe96ebbc58f0') in 0.015985 seconds 
+  Import took 0.021433 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.103653 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx
+  artifactKey: Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx using Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b38e52fb488c41d9ddfb25169fd78c52') in 0.035292 seconds 
+  Import took 0.042015 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000721 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/Wall (Refurbised) 1.mat
+  artifactKey: Guid(13cd0a1b19dda27449f1d2b2c58c50cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/Wall (Refurbised) 1.mat using Guid(13cd0a1b19dda27449f1d2b2c58c50cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64ecac9414b66858b497baa2565c449d') in 0.028631 seconds 
+  Import took 0.033867 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000517 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/Wall (Refurbised) 2.mat
+  artifactKey: Guid(db6fc0487b900564fbbbfa83632b351c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/Wall (Refurbised) 2.mat using Guid(db6fc0487b900564fbbbfa83632b351c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65c91de6aac55f0ceb078aedc5cc3e13') in 0.014979 seconds 
+  Import took 0.021156 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000744 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/Wall (Refurbised) 3.mat
+  artifactKey: Guid(a860e421fe128c44b8d0ef3763f4cb84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/Wall (Refurbised) 3.mat using Guid(a860e421fe128c44b8d0ef3763f4cb84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a4d87a1e500ca34a8054ad322f0d76f') in 0.019892 seconds 
+  Import took 0.025578 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000942 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/Global.mat
+  artifactKey: Guid(5dbec4549b5dd6840a616e1bb9a7bd85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/Global.mat using Guid(5dbec4549b5dd6840a616e1bb9a7bd85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ceaefd1781a95930de88df7df248fa96') in 0.020988 seconds 
+  Import took 0.027023 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000818 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/Material.038.mat
+  artifactKey: Guid(beaaca947c9786342b31d1c7cc96d6e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/Material.038.mat using Guid(beaaca947c9786342b31d1c7cc96d6e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40084d13fc783b458f92ced7a766f772') in 0.019151 seconds 
+  Import took 0.024747 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 448.374806 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx
+  artifactKey: Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx using Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7181401748c4e8a23c0d4e643924380d') in 0.006495 seconds 
+  Import took 0.012465 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.961661 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx
+  artifactKey: Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx using Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df78e80e85866e8d624623c98eacdc61') in 0.041770 seconds 
+  Import took 0.047469 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.648275 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx
+  artifactKey: Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx using Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c62e8afeebf35fd192ae94441e49d89d') in 0.034184 seconds 
+  Import took 0.040636 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 37.488525 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx
+  artifactKey: Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx using Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6c19e3c683950cd95a9dccddf412d36') in 0.041787 seconds 
+  Import took 0.047596 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 68.155211 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx
+  artifactKey: Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Walls & Roof/House.fbx using Guid(73a92e4c10620d04baa70b52bd4980fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1be171ecee400abd0aa70127ee76c8f6') in 0.030541 seconds 
+  Import took 0.036807 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005796 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.75 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.105 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1105ms)
+		BeginReloadAssembly (137ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (912ms)
+			LoadAssemblies (100ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (298ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (333ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (104ms)
+				ProcessInitializeOnLoadAttributes (206ms)
+				ProcessInitializeOnLoadMethodAttributes (8ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (17ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.71 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3646 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 178.3 MB.
+System memory in use after: 178.5 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4363.
+Total: 3.719700 ms (FindLiveObjects: 0.308100 ms CreateObjectMapping: 0.152000 ms MarkObjects: 3.145100 ms  DeleteObjects: 0.113500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 9499.893464 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/(Normal) Finish.png
+  artifactKey: Guid(cdf0c7360915d3c4a86124ca57338ade) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/(Normal) Finish.png using Guid(cdf0c7360915d3c4a86124ca57338ade) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7aeb7f00b4479cf8d19852d5de68eb5f') in 0.224986 seconds 
+  Import took 0.319870 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006535 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.83 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.226 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1227ms)
+		BeginReloadAssembly (163ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (67ms)
+		EndReloadAssembly (998ms)
+			LoadAssemblies (110ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (337ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (360ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (104ms)
+				ProcessInitializeOnLoadAttributes (229ms)
+				ProcessInitializeOnLoadMethodAttributes (9ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (16ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.77 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3646 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 178.4 MB.
+System memory in use after: 178.6 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4367.
+Total: 4.140300 ms (FindLiveObjects: 0.405900 ms CreateObjectMapping: 0.255600 ms MarkObjects: 3.374700 ms  DeleteObjects: 0.102900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 211.863038 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx
+  artifactKey: Guid(38e871feb042e5747929a5cc3755ee41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx using Guid(38e871feb042e5747929a5cc3755ee41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdb57957689d6843bcbfcd5132ed6f69') in 6.410481 seconds 
+  Import took 6.423401 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 83.255033 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx
+  artifactKey: Guid(38e871feb042e5747929a5cc3755ee41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx using Guid(38e871feb042e5747929a5cc3755ee41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '605e7ce2c0b0d54b4a09b78c7d96fc98') in 6.039627 seconds 
+  Import took 6.054381 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.746023 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx
+  artifactKey: Guid(38e871feb042e5747929a5cc3755ee41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx using Guid(38e871feb042e5747929a5cc3755ee41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c164a0f8bebc89712d623a053058dc6') in 0.082898 seconds 
+  Import took 0.089155 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009517 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.83 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.525 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1526ms)
+		BeginReloadAssembly (165ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (50ms)
+		EndReloadAssembly (1283ms)
+			LoadAssemblies (134ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (437ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (62ms)
+			SetupLoadedEditorAssemblies (465ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (136ms)
+				ProcessInitializeOnLoadAttributes (297ms)
+				ProcessInitializeOnLoadMethodAttributes (10ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (26ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 1.02 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3646 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 181.9 MB.
+System memory in use after: 182.1 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4405.
+Total: 3.840600 ms (FindLiveObjects: 0.359300 ms CreateObjectMapping: 0.163900 ms MarkObjects: 3.170800 ms  DeleteObjects: 0.145600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 17909.395869 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Diffuse) Furnace.png
+  artifactKey: Guid(333bf6e59c7d1d64bb247d6c4d55b827) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Diffuse) Furnace.png using Guid(333bf6e59c7d1d64bb247d6c4d55b827) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '719db7ddbdc98d7f610eb54a3ea31dc8') in 0.250904 seconds 
+  Import took 0.394840 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001400 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Specularr) Furnace.png
+  artifactKey: Guid(951ff429c8f79da4d994feeb03930458) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Specularr) Furnace.png using Guid(951ff429c8f79da4d994feeb03930458) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eca39006e116299c328ab4096fbeea86') in 0.012627 seconds 
+  Import took 0.018318 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001204 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Normal) Furnace.png
+  artifactKey: Guid(3d5304db3ea0d0d4394cb38429250b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Normal) Furnace.png using Guid(3d5304db3ea0d0d4394cb38429250b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d5c676342f39f91f04ece3baaf4d0c3') in 0.015799 seconds 
+  Import took 0.021464 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.834784 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx
+  artifactKey: Guid(38e871feb042e5747929a5cc3755ee41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx using Guid(38e871feb042e5747929a5cc3755ee41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51e2baf397b5e37b0c181da39552941e') in 0.217243 seconds 
+  Import took 0.223403 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001246 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Rock Wall.mat
+  artifactKey: Guid(c1289fd8b04f37a42bcbeca5b56a6ca7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Rock Wall.mat using Guid(c1289fd8b04f37a42bcbeca5b56a6ca7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67762d43e4ad204a9f598d932bbcd937') in 0.030987 seconds 
+  Import took 0.036532 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000976 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Back Floor.mat
+  artifactKey: Guid(3bbc16fe1dd8e804bb196668c8e9a45c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Back Floor.mat using Guid(3bbc16fe1dd8e804bb196668c8e9a45c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b47abacdb6860bf4cfd4874955d03b64') in 0.020691 seconds 
+  Import took 0.027207 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001190 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace Head.mat
+  artifactKey: Guid(451f136f5d245eb45a2a91ab47cd8ee8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace Head.mat using Guid(451f136f5d245eb45a2a91ab47cd8ee8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ead01106c845897ba549b82f4dbbcc3') in 0.016133 seconds 
+  Import took 0.022457 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001329 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace Edge.mat
+  artifactKey: Guid(efd0d0da16f4c754e95457b1f1f8e874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace Edge.mat using Guid(efd0d0da16f4c754e95457b1f1f8e874) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e1c4710b86fa1f291af8da9def20c62') in 0.019126 seconds 
+  Import took 0.025715 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001439 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace Front Floor.mat
+  artifactKey: Guid(7fe1b8b5cbee10e499aa679dcfdc2a23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace Front Floor.mat using Guid(7fe1b8b5cbee10e499aa679dcfdc2a23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f46c9870ec0bcf14006d89648ac0269') in 0.016672 seconds 
+  Import took 0.022309 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 86.212711 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/House6.fbx
+  artifactKey: Guid(8ae6c8d478e7d394eacb7e6025fda803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/House6.fbx using Guid(8ae6c8d478e7d394eacb7e6025fda803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74e106e969952e8928a5f9c9c639114f') in 0.068906 seconds 
+  Import took 0.074955 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.783086 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/House.fbx
+  artifactKey: Guid(a92569beeed59fe429cf1d0b2d0a59b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/House.fbx using Guid(a92569beeed59fe429cf1d0b2d0a59b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f038111c33344b382f286c31b4a74938') in 0.061878 seconds 
+  Import took 0.068497 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.097941 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Specularr) Furnace.png
+  artifactKey: Guid(951ff429c8f79da4d994feeb03930458) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Specularr) Furnace.png using Guid(951ff429c8f79da4d994feeb03930458) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11108535bccbed613a46e9af38892155') in 0.009966 seconds 
+  Import took 0.015586 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.453524 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx
+  artifactKey: Guid(a92569beeed59fe429cf1d0b2d0a59b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx using Guid(a92569beeed59fe429cf1d0b2d0a59b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e4942615c9f54b8dfdd93759a3572dd') in 0.069227 seconds 
+  Import took 0.075367 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3181.742804 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/House.fbx
+  artifactKey: Guid(e5e09ea7570bd604f998a29558321aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/House.fbx using Guid(e5e09ea7570bd604f998a29558321aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56924aafacd8b53dce97ffcc1a95b87b') in 0.150318 seconds 
+  Import took 0.217634 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.975173 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Normal) Furnace.png
+  artifactKey: Guid(3d5304db3ea0d0d4394cb38429250b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Normal) Furnace.png using Guid(3d5304db3ea0d0d4394cb38429250b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0abdb49e53c79dc3c7b2a89ec1291eb7') in 0.019752 seconds 
+  Import took 0.027362 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.722950 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/House.fbx
+  artifactKey: Guid(e5e09ea7570bd604f998a29558321aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/House.fbx using Guid(e5e09ea7570bd604f998a29558321aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec7625892b5bd43813498619848e5372') in 0.076721 seconds 
+  Import took 0.087005 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.592184 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Diffuse) Furnace.png
+  artifactKey: Guid(333bf6e59c7d1d64bb247d6c4d55b827) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Diffuse) Furnace.png using Guid(333bf6e59c7d1d64bb247d6c4d55b827) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf88ca43a5b91bbd30b4fa029c487316') in 0.025822 seconds 
+  Import took 0.036906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001297 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Specularr) Furnace.png
+  artifactKey: Guid(951ff429c8f79da4d994feeb03930458) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Specularr) Furnace.png using Guid(951ff429c8f79da4d994feeb03930458) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b64eb193546aea6db605a9b0d1c22af') in 0.024763 seconds 
+  Import took 0.036357 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001199 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Normal) Furnace.png
+  artifactKey: Guid(3d5304db3ea0d0d4394cb38429250b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Normal) Furnace.png using Guid(3d5304db3ea0d0d4394cb38429250b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56562d782a8d39362c79be8df5aead54') in 0.019628 seconds 
+  Import took 0.028643 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.698932 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Normal) Furnace.png
+  artifactKey: Guid(3d5304db3ea0d0d4394cb38429250b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Normal) Furnace.png using Guid(3d5304db3ea0d0d4394cb38429250b06) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8b54552a65788ed392501526481a146') in 0.018888 seconds 
+  Import took 0.028141 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.997884 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx
+  artifactKey: Guid(e5e09ea7570bd604f998a29558321aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx using Guid(e5e09ea7570bd604f998a29558321aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25d657f2c9091a678b6fb0c4e9ca5522') in 0.072406 seconds 
+  Import took 0.081888 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 23.040460 seconds.
+  path: Assets/DownloadedAssets/AssetsStore/Garage_props/Assets/Meshes/barrel.FBX
+  artifactKey: Guid(730ec7caf81adcf459ff3629caa2004b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DownloadedAssets/AssetsStore/Garage_props/Assets/Meshes/barrel.FBX using Guid(730ec7caf81adcf459ff3629caa2004b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30288a31d9817d063a98270677577559') in 0.145215 seconds 
+  Import took 0.153722 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001438 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/Bed/Bed.fbx
+  artifactKey: Guid(898fff167ca81fc42ae7790bf9cd6be8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/Bed/Bed.fbx using Guid(898fff167ca81fc42ae7790bf9cd6be8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09b3f2b015f14963e057fa27fb638587') in 0.116603 seconds 
+  Import took 0.123853 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001419 seconds.
+  path: Assets/DownloadedAssets/AssetsStore/Garage_props/Assets/Meshes/barrel_open.FBX
+  artifactKey: Guid(dec4e356da82ab342a89629bc655312a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DownloadedAssets/AssetsStore/Garage_props/Assets/Meshes/barrel_open.FBX using Guid(dec4e356da82ab342a89629bc655312a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8459d0e929841f9af9634eb2e791d7a5') in 0.069211 seconds 
+  Import took 0.077172 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001961 seconds.
+  path: Assets/DownloadedAssets/AssetsStore/Garage_props/Assets/Meshes/barrel_cover.FBX
+  artifactKey: Guid(5a1285cf34db6d345897cb5a051a0e9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DownloadedAssets/AssetsStore/Garage_props/Assets/Meshes/barrel_cover.FBX using Guid(5a1285cf34db6d345897cb5a051a0e9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ba6b694cb82a2ba3f8bf6bf09d982b3') in 0.077438 seconds 
+  Import took 0.088607 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002083 seconds.
+  path: Assets/Prefabs/Models/Enemies/enemy1.fbx
+  artifactKey: Guid(080f9c7549318344699a81a218b4d2b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Models/Enemies/enemy1.fbx using Guid(080f9c7549318344699a81a218b4d2b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d4ee4401557f7cd92d8524db7d64cf4') in 0.398357 seconds 
+  Import took 0.405894 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001231 seconds.
+  path: Assets/DownloadedAssets/Toon Gas Station/Models/Barrel_1F.fbx
+  artifactKey: Guid(4da680e590d711e4fb6ae1e90b6497f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/DownloadedAssets/Toon Gas Station/Models/Barrel_1F.fbx using Guid(4da680e590d711e4fb6ae1e90b6497f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40729a5ee6285e9a3c1676185d4f607e') in 0.067323 seconds 
+  Import took 0.075158 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002008 seconds.
+  path: Assets/Prefabs/ReadyModels/Barrel_3B.fbx
+  artifactKey: Guid(5b9ebe0220700b045964d31ea56f5efa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ReadyModels/Barrel_3B.fbx using Guid(5b9ebe0220700b045964d31ea56f5efa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8f4b30ae374a6f4f7b154d3bc6ee10e') in 0.066377 seconds 
+  Import took 0.075611 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 117.105357 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx
+  artifactKey: Guid(e5e09ea7570bd604f998a29558321aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.fbx using Guid(e5e09ea7570bd604f998a29558321aa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5b18fdab2490df2760b053ff2823f2e') in 0.059166 seconds 
+  Import took 0.071815 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001830 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.mat
+  artifactKey: Guid(fd099efba5e3d40418484e21bcd368d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.mat using Guid(fd099efba5e3d40418484e21bcd368d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47607ccc9e38a0e207e78265fb46bfe0') in 0.022347 seconds 
+  Import took 0.030554 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 249.011328 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Specular Inverted) Furnace.png
+  artifactKey: Guid(eb706fd724067354eabf5a402e43ca38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/(Specular Inverted) Furnace.png using Guid(eb706fd724067354eabf5a402e43ca38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11762f56bd18986db53788f0a2d9f2d2') in 0.025554 seconds 
+  Import took 0.034312 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 76.431202 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.mat
+  artifactKey: Guid(fd099efba5e3d40418484e21bcd368d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.mat using Guid(fd099efba5e3d40418484e21bcd368d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab62e19606f9ecc07ec78be94c468154') in 0.049624 seconds 
+  Import took 0.059809 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 83.127702 seconds.
+  path: Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.mat
+  artifactKey: Guid(fd099efba5e3d40418484e21bcd368d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Joshua/Prefabs/Objects/Normal/House/Furnace/Furnace.mat using Guid(fd099efba5e3d40418484e21bcd368d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e364aaa21d11922de950ea2f500133b9') in 0.044725 seconds 
+  Import took 0.058025 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.112781 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.83 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.608 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1610ms)
+		BeginReloadAssembly (300ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (20ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (124ms)
+		EndReloadAssembly (1238ms)
+			LoadAssemblies (155ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (433ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (56ms)
+			SetupLoadedEditorAssemblies (421ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (129ms)
+				ProcessInitializeOnLoadAttributes (259ms)
+				ProcessInitializeOnLoadMethodAttributes (13ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (24ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3646 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 182.0 MB.
+System memory in use after: 182.2 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4444.
+Total: 4.579600 ms (FindLiveObjects: 0.389100 ms CreateObjectMapping: 0.338700 ms MarkObjects: 3.720100 ms  DeleteObjects: 0.130500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008919 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.41 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.945 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1946ms)
+		BeginReloadAssembly (193ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (54ms)
+		EndReloadAssembly (1640ms)
+			LoadAssemblies (170ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (499ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (83ms)
+			SetupLoadedEditorAssemblies (627ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (196ms)
+				ProcessInitializeOnLoadAttributes (392ms)
+				ProcessInitializeOnLoadMethodAttributes (12ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (27ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 1.06 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3646 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 182.0 MB.
+System memory in use after: 182.2 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4446.
+Total: 6.726000 ms (FindLiveObjects: 0.494400 ms CreateObjectMapping: 0.456800 ms MarkObjects: 5.607100 ms  DeleteObjects: 0.165900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008286 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.80 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.852 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1853ms)
+		BeginReloadAssembly (178ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (15ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (51ms)
+		EndReloadAssembly (1566ms)
+			LoadAssemblies (161ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (528ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (85ms)
+			SetupLoadedEditorAssemblies (519ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (146ms)
+				ProcessInitializeOnLoadAttributes (336ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (27ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 1.16 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3646 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 182.0 MB.
+System memory in use after: 182.2 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4448.
+Total: 6.233900 ms (FindLiveObjects: 0.498000 ms CreateObjectMapping: 0.326400 ms MarkObjects: 5.272600 ms  DeleteObjects: 0.134900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007895 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.32 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.870 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1871ms)
+		BeginReloadAssembly (164ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (43ms)
+		EndReloadAssembly (1548ms)
+			LoadAssemblies (197ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (534ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (81ms)
+			SetupLoadedEditorAssemblies (529ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (165ms)
+				ProcessInitializeOnLoadAttributes (328ms)
+				ProcessInitializeOnLoadMethodAttributes (12ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (30ms)
+Platform modules already initialized, skipping
+Shader 'WFX/Transparent Diffuse': fallback shader 'Particles/Alpha Blended' not found
+Shader 'WFX/Transparent Specular': fallback shader 'Particles/Alpha Blended' not found
+Refreshing native plugins compatible for Editor in 0.89 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3646 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 182.1 MB.
+System memory in use after: 182.3 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4450.
+Total: 5.099300 ms (FindLiveObjects: 0.419800 ms CreateObjectMapping: 0.240900 ms MarkObjects: 4.283700 ms  DeleteObjects: 0.153800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

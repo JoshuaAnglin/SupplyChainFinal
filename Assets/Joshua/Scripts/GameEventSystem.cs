@@ -9,24 +9,36 @@ public class GameEventSystem : MonoBehaviour
 {
     static public GameEventSystem GES;
 
+    public event Action onEnteringGame;
+    public event Action onTitleToMain;
     public event Action<int> onCameraTurn;
-    public event Action onWithinAnArea;
+    public event Action onDefaultState;
+    public event Action<int> onWithinAnArea;
+    public event Action onPlayStage;
+
+    public event Action onBackFromStage;
 
     void Awake()
     {GES = this;}
 
-    public void CameraTurn(int direction)
-    {
-        if (onCameraTurn != null)
-            onCameraTurn(direction);
-    }
+    public void EnteringGame()
+    { if (onEnteringGame != null) onEnteringGame(); }
 
-    public void WithinAnArea()
-    {
-        if (onWithinAnArea != null)
-        {
-            onWithinAnArea();
-        }
-        
-    }
+    public void TitleToMain()
+    { if (onTitleToMain != null) onTitleToMain();}
+
+    public void CameraTurn(int direction)
+    {if (onCameraTurn != null) onCameraTurn(direction);}
+
+    public void DefaultState()
+    { if (onDefaultState != null) onDefaultState(); }
+
+    public void WithinAnArea(int animState)
+    {if (onWithinAnArea != null) onWithinAnArea(animState);}
+
+    public void PlayStage()
+    { if (onPlayStage != null) onPlayStage(); }
+
+    public void BackFromStage()
+    { if (onBackFromStage != null) onBackFromStage();}
 }

@@ -33,8 +33,8 @@ public class move : MonoBehaviour
     {
         if (Time.time > 10.0f && Time.time < 11.0f)
         {
-            maxhealth = 400;
-            health = 250;
+            BasicStats.instance.maxHp = 400;
+            BasicStats.instance.currentHP = 250;
             damage = -30;
         }
         Move();

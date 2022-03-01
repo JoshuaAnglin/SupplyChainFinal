@@ -6,7 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GlobalScript : MonoBehaviour
 {
-    static public bool SwitchToMainMenu;
+    public enum GameplayStatus
+    {
+        inTitleScreen,
+        inMainMenu,
+        inGame
+    }
+
+    static public GameplayStatus GameState;
 
     static public float musicVolume = 50f;
     static public float soundEffectsVolume = 50f;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HUD : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class HUD : MonoBehaviour
     int currentWeaponRange = 0;
 
     int selectedItemIndex;
+
+    void Awake()
+    {
+        GlobalScript.GameState = GlobalScript.GameplayStatus.inGame;
+    }
 
     void Start()
     {
@@ -31,6 +37,8 @@ public class HUD : MonoBehaviour
         {
             SwitchWeapon(ref currentWeaponRange, 1);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene(0);
     }
 
     void SwitchWeapon(ref int d, int offset)
