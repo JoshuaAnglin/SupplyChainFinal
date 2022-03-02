@@ -13,6 +13,9 @@ public class MainMenu : MonoBehaviour
 
     static public MainMenu inst;
 
+    static public bool inOptions, inScenery, inCredits, inPlay, inExit, inCrafting;
+    static public Color col;
+
     void Awake()
     {
         Time.timeScale = 1;
@@ -35,11 +38,21 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
+        // Within Area
         if (Input.GetKeyDown(KeyCode.Escape) && animationState != -1) BackToDefaultPosition();
     }
 
     public void BackToDefaultPosition()
-    {GameEventSystem.GES.DefaultState();}
+    {
+        GameEventSystem.GES.DefaultState();
+
+        if (inOptions) inOptions = false;
+        if (inScenery) inScenery = false;
+        if (inCredits) inCredits = false;
+        if (inPlay) inPlay = false;
+        if (inExit) inExit = false;
+        if (inCrafting) inCrafting = false;
+    }
 
     void WithinArea(int animState)
     {

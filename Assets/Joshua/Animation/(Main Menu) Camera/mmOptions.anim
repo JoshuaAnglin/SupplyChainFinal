@@ -28,7 +28,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1
-        value: {x: 13.8, y: -90, z: 0}
+        value: {x: 0, y: -90, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -54,25 +54,25 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.38333333
-        value: {x: -32.51616, y: 9.248616, z: -14.942255}
-        inSlope: {x: -25.052261, y: 4.9641666, z: 2.4537182}
-        outSlope: {x: -25.052261, y: 4.9641666, z: 2.4537182}
+        value: {x: -32.51616, y: 9.059587, z: -14.942255}
+        inSlope: {x: -25.052261, y: 4.1472063, z: 2.4537182}
+        outSlope: {x: -25.052261, y: 4.1472063, z: 2.4537182}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.65
-        value: {x: -36.231594, y: 10.613876, z: -14.267427}
-        inSlope: {x: -6.767318, y: 4.7775, z: 2.361448}
-        outSlope: {x: -6.767318, y: 4.7775, z: 2.361448}
+        value: {x: -36.231594, y: 10.200163, z: -14.267427}
+        inSlope: {x: -6.767318, y: 3.99126, z: 2.361448}
+        outSlope: {x: -6.767318, y: 3.99126, z: 2.361448}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.22275211, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.44742173, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1
-        value: {x: -38.5, y: 11.6, z: -13.78}
+        value: {x: -38.5, y: 11.024, z: -13.78}
         inSlope: {x: -7.7373047, y: 0, z: 0}
         outSlope: {x: -7.7373047, y: 0, z: 0}
         tangentMode: 0
@@ -189,7 +189,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 11.6
+        value: 11.024
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -245,7 +245,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 13.8
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -348,4 +348,11 @@ AnimationClip:
     script: {fileID: 0}
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1
+    functionName: DisableAnimator
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

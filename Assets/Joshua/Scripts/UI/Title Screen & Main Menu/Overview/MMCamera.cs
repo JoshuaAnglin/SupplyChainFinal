@@ -8,14 +8,16 @@ public class MMCamera : MonoBehaviour
     Animator anim;
     static public int direction;
 
-    float clamp;
+    float rotClamp;
     Vector3 startPos = new Vector3(-37.93f, 4.81f, -8.8f);
     Vector3 startRot = new Vector3(-10, -60.37f, 0);
 
-    [SerializeField] GameObject optionsIndicator;
-    [SerializeField] GameObject craftingIndicator;
+    float minScrollPos = 9f;
+    float maxScrollPos = 11.6f;
 
     [SerializeField] Animator animDoor;
+    [SerializeField] GameObject optionsIndicator;
+    [SerializeField] GameObject craftingIndicator;
 
     void Awake()
     {
@@ -56,6 +58,25 @@ public class MMCamera : MonoBehaviour
         GameEventSystem.GES.onBackFromStage -= GameplayToMainMenu;
     }
 
+    void Update()
+    {
+        // Options Area
+        if (MainMenu.inOptions)
+        {
+            if (transform.position.y < minScrollPos)
+            {
+                transform.position = new Vector3(transform.position.x, minScrollPos + 0.15f, transform.position.z);
+            }
+
+            else if (transform.position.y > maxScrollPos)
+            {
+                transform.position = new Vector3(transform.position.x, maxScrollPos - 0.15f, transform.position.z);
+            }
+
+            else transform.Translate(Vector3.up * (Input.GetAxis("Mouse ScrollWheel") * 2));
+        }
+    }
+
     #region Animation Events
 
     void ActivateDoor()
@@ -91,16 +112,16 @@ public class MMCamera : MonoBehaviour
 
     void CameraRotation(int dir)
     {
-        clamp = Mathf.Clamp(clamp + (dir * 0.3f), -77, 77);
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, clamp, transform.localEulerAngles.z);
+        rotClamp = Mathf.Clamp(rotClamp + (dir * 0.3f), -77, 77);
+        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotClamp, transform.localEulerAngles.z);
 
-        if (clamp > 0 && clamp <= 77 && optionsIndicator.activeSelf)
+        if (rotClamp > 0 && rotClamp <= 77 && optionsIndicator.activeSelf)
         {
             optionsIndicator.SetActive(false);
             craftingIndicator.SetActive(true);
         }
 
-        else if (clamp < 0 && clamp >= -77 && !optionsIndicator.activeSelf)
+        else if (rotClamp < 0 && rotClamp >= -77 && !optionsIndicator.activeSelf)
         {
             optionsIndicator.SetActive(true);
             craftingIndicator.SetActive(false);
@@ -129,4 +150,7 @@ public class MMCamera : MonoBehaviour
     }
 
     #endregion
+
+    public void GoToRadio()
+    {anim.SetBool("ModifyingSound", true);}
 }

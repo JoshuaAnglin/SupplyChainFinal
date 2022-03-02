@@ -93,8 +93,9 @@
     <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Overview\ObjectButtons.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Environment\Machines.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
+    <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\PinboardNotes.cs" />
     <Compile Include="Assets\Joshua\Scripts\GameEventSystem.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Thing.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\Thing.cs" />
     <Compile Include="Assets\SamScripts\ItemButton.cs" />
     <Compile Include="Assets\Scripts\Other\GlobalScript.cs" />
     <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\HoldableItems.cs" />
@@ -104,7 +105,7 @@
     <Compile Include="Assets\Joshua\Scripts\Interfaces\Gameplay\IWeapon.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInteractWith.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Items\Item.cs" />
-    <Compile Include="Assets\Joshua\Scripts\UI\Lights\MainMenuLights.cs" />
+    <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Lights\MainMenuLights.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Quest\QuestObjectActivator.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Overview\ScrollAreas.cs" />
@@ -114,6 +115,8 @@
     <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\Material.cs" />
     <Compile Include="Assets\Joshua\Scripts\Interfaces\Gameplay\IMaterial.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
+    <Compile Include="Assets\Joshua\Scripts\ExtensionMethods.cs" />
+    <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Radio\RadioSpinners.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Sounds\Sound Effects\Notes.txt" />
