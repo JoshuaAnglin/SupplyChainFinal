@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicStats : MonoBehaviour
+public class BasicStats : MonoBehaviour,idamage
 {
     // this is player stats script
 
@@ -18,10 +18,10 @@ public class BasicStats : MonoBehaviour
    
     void Start()
     {
-        updatehealth();
         instance = this;
         isPlayer = true;
         currentHP = maxHp;
+        updatehealth();
 
         expToNextLevel = new int[maxLevel];
         expToNextLevel[1] = baseXP;
@@ -56,6 +56,13 @@ public class BasicStats : MonoBehaviour
         {
             currentXP = 0;
         }
+    }
+    public void addhealth(int amount)
+    {
+        currentHP += amount;
+        if (currentHP < minhealth) currentHP = minhealth;
+        if (currentHP > maxHp) currentHP = maxHp;
+        updatehealth();
     }
     public void updatehealth()
     {

@@ -15,6 +15,15 @@ public class move : MonoBehaviour
 
     // Start is called before the first frame update
 
+    [SerializeField]
+    float health = 100.0f;
+    [SerializeField]
+    float maxhealth = 100.0f;
+    [SerializeField]
+    float minhealth = 0.0f;
+    [SerializeField]
+    Component healthbar;
+
     RaycastHit obj;
     [SerializeField]
     float hitrange = 6.0f;
@@ -31,12 +40,6 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > 10.0f && Time.time < 11.0f)
-        {
-            BasicStats.instance.maxHp = 400;
-            BasicStats.instance.currentHP = 250;
-            damage = -30;
-        }
         Move();
         Rotate();
         if (Input.GetMouseButton(1))
@@ -99,7 +102,7 @@ public class move : MonoBehaviour
         else VerticalSpeed -= gravity * Time.deltaTime;
         Vector3 gravityMove = new Vector3(0, VerticalSpeed, 0);
 
-        Vector3 move = transform.forward * verticalMove + transform.right * horizontalMove;
+        Vector3 move = transform.forward * verticalMove + transform.right * horizontalMove+ gravityMove;
         characterController.Move(speed * Time.deltaTime * move);
     }
     public void Rotate()
@@ -113,5 +116,4 @@ public class move : MonoBehaviour
         currentRotation.x = Mathf.Clamp(currentRotation.x, upLimit, downLimit);
         cameraHolder.localRotation = Quaternion.Euler(currentRotation);
     }
-  
 }
