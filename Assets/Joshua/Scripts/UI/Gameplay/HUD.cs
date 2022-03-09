@@ -6,58 +6,72 @@ using UnityEngine.SceneManagement;
 
 public class HUD : MonoBehaviour
 {
-    // Right now, it's serialized. Later on, make it so that the items are already picked within the overworld, then transferred to this list
-    [SerializeField] List<Weapon> weapons;
+    // Health & Level
+    [SerializeField] Image imgHealth, imgLevel;
+    [SerializeField] Text txtHealth, txtLevel;
 
-    [SerializeField] Text currentWeaponName;
-    [SerializeField] GameObject weaponInventory;
+    // Time & Whole Inventory
+    [SerializeField] Button btnTime;
+    float minutes = 5;
+    float seconds = 00;
+    [Space]
+    [Space]
 
-    int currentWeaponRange = 0;
+    // HUD Inventory
+    public List<Button> hudInventorySlots = new List<Button>();
+    [SerializeField] Text currentItem;
 
-    int selectedItemIndex;
+    static public HUD hud;
 
     void Awake()
     {
         GlobalScript.GameState = GlobalScript.GameplayStatus.inGame;
-    }
-
-    void Start()
-    {
-        SwitchWeapon(ref currentWeaponRange, 0);
+        hud = GetComponent<HUD>();
     }
 
     void Update()
     {
-        // Weapon Switching
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SwitchWeapon(ref currentWeaponRange, -1);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SwitchWeapon(ref currentWeaponRange, 1);
-        }
+        Timer();
+        if (Input.GetKeyDown(KeyCode.Alpha4)) SceneManager.LoadScene(0);
 
-        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene(0);
+        imgHealth.fillAmount = Mathf.Lerp(imgHealth.fillAmount, 0, 2f * Time.deltaTime);
+        txtHealth.text = "HP (" + (imgHealth.fillAmount * 100).ToString("00") + "%)";
     }
 
-    void SwitchWeapon(ref int d, int offset)
+    // Countdown Timer
+    void Timer()
     {
-        d += offset;
+        seconds -= Time.deltaTime;
 
-        if (currentWeaponRange == weapons.Count) currentWeaponRange = 0;
-        else if (currentWeaponRange < 0) currentWeaponRange = weapons.Count - 1;
+        TimeSystem(seconds <= -1, -1, 59);
+        TimeSystem(seconds >= 60, 1, 00);
 
-        for (int a = 0; a < weaponInventory.transform.childCount; a++)
+        if (minutes <= 0 && seconds <= 0) seconds = minutes = 0;
+
+        btnTime.transform.GetChild(0).GetComponent<Text>().text = minutes.ToString("00") + ":" + (Mathf.CeilToInt(seconds)).ToString("00");
+
+        void TimeSystem(bool Decider, int newMin, int newSec)
         {
-            weaponInventory.transform.GetChild(a).GetChild(0).GetComponent<Image>().sprite = weapons[currentWeaponRange].givenImage;
-
-            if (a == selectedItemIndex)
+            if (Decider)
             {
-                currentWeaponName.text = weapons[currentWeaponRange].name;
+                minutes += newMin;
+                seconds = newSec;
             }
+        }
+    }
 
-            currentWeaponRange++;
+    // HUD Inventory
+    public void AddToInventory(CraftingMaterial cm)
+    {
+        foreach (Button hudInventorySlot in hudInventorySlots)
+        {
+            Image btnSprite = hudInventorySlot.GetComponent<Image>();
+
+            if (btnSprite.sprite == null)
+            {
+                btnSprite.sprite = cm.info.GivenSprite;
+                break;
+            }
         }
     }
 }

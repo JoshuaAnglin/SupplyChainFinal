@@ -83,7 +83,7 @@ public class MMCamera : MonoBehaviour
     { animDoor.SetInteger("DoorState", 0); }
 
     void GoToStage()
-    { SceneManager.LoadScene(2); }
+    { SceneManager.LoadScene(1); }
 
     void setToMainMenu()
     {

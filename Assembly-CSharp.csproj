@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -47,16 +47,21 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.11</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.14</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.19f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\CraftingMaterial.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Level\LevelUp.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Stats\HealthBar.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\KeyItem.cs" />
     <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Credits\CreditAlbums.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Combat\Fighter.cs" />
     <Compile Include="Assets\Scripts\UI\Title Screen\MainMenu.cs" />
@@ -69,7 +74,8 @@
     <Compile Include="Assets\Scripts\UI\Gameplay\GameplayUI.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player\PlayerCollision.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\Weapon.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\WeaponData.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Other\ExtensionMethods.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Pause.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Stats\Progression.cs" />
@@ -79,6 +85,7 @@
     <Compile Include="Assets\Scripts\idamage.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Combat\PatrolPath.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
+    <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Radio\RadioSpinners.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\QuestComplete.cs" />
     <Compile Include="Assets\SamScripts\GameMenu.cs" />
     <Compile Include="Assets\SamScripts\BasicStats.cs" />
@@ -87,6 +94,7 @@
     <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Overview\MMCamera.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Other\ItemRegistration.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Environment\SmokeDMG.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Stats\characterClass.cs" />
     <Compile Include="Assets\Joshua\Scripts\Interfaces\UI\IMMButtonHandler.cs" />
@@ -94,11 +102,11 @@
     <Compile Include="Assets\Scripts\Gameplay\Environment\Machines.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
     <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\PinboardNotes.cs" />
-    <Compile Include="Assets\Joshua\Scripts\GameEventSystem.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\Thing.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Other\GameEventSystem.cs" />
     <Compile Include="Assets\SamScripts\ItemButton.cs" />
     <Compile Include="Assets\Scripts\Other\GlobalScript.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\HoldableItems.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\Weapon.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\KeyItemData.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Stats\BaseStats.cs" />
     <Compile Include="Assets\Joshua\Scripts\UI\Gameplay\HUD.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player\PlayerMovement.cs" />
@@ -112,35 +120,54 @@
     <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Overview\ObjectButtonIndicators.cs" />
     <Compile Include="Assets\SamScripts\GameManager.cs" />
     <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Title Screen\Radio.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\Material.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\CraftingMaterialData.cs" />
     <Compile Include="Assets\Joshua\Scripts\Interfaces\Gameplay\IMaterial.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
-    <Compile Include="Assets\Joshua\Scripts\ExtensionMethods.cs" />
-    <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Radio\RadioSpinners.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Sounds\Sound Effects\Notes.txt" />
     <None Include="Assets\DownloadedAssets\Toon Gas Station\ToonShading\Shaders\ToonBasicOutline.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft Scroll.shader" />
     <None Include="Assets\Prefabs\Sounds\BGM\(READ).txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\_Effects\MuzzleFlashes\!MuzzleFlash Differences.txt" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S Alpha-Specular TintColor.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S Add Scroll.shader" />
     <None Include="Assets\DownloadedAssets\Toon Gas Station\ToonShading\Shaders\ToonBasic.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\_Effects (Mobile)\MuzzleFlashes\!MuzzleFlash Differences.txt" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S Particle Add A8.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S Smoke Scroll.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S Particle Multiply A8.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\DownloadedAssets\Toon Gas Station\ToonShading\Shaders\ToonLit.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S AlphaBlend Scroll.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\DownloadedAssets\Toon Gas Station\ToonShading\Shaders\ToonLitOutline.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\DownloadedAssets\Zelalkat\Cartoon Car-Vehicle Pack\Assets\Documents\Read Me.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S Particle AddSoft A8.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\!WarFX Readme.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S Alpha-Diffuse TintColor.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S AlphaBlend NoSoftParticles.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\DownloadedAssets\Toon Gas Station\Documentation\Toon Gas Station Documentation.txt" />
   </ItemGroup>
   <ItemGroup>

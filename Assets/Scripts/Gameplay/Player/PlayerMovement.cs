@@ -26,10 +26,6 @@ public class PlayerMovement : MonoBehaviour
     Vector2 curMouseMove = Vector2.zero;
     Vector2 curMouseMoveVelocity = Vector2.zero;
 
-    [SerializeField] Image healthBarValue;
-    [SerializeField] GameObject winCollider;
-
-
     // Jumping
     float jumpForce = 2f;
 
@@ -50,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
     {
         movement();
         lookAtMouse();
+
+        CraftingMaterialPickup();
     }
 
     void movement()
@@ -78,42 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Character controller handles movement and collision
         controller.Move(move);
-
-        //--------------------------------------------------------------
-
-        /*float horizontal = Input.GetAxis("Horizontal") * movementSpeed;
-        float vertical = Input.GetAxis("Vertical") * movementSpeed;
-        Vector3 move = transform.right * horizontal + transform.forward * vertical;
-
-        if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
-        {
-            curDir.y = jumpForce;
-        }
-        else curDir.y += gravity * Time.deltaTime;
-
-        controller.Move(move.normalized * movementSpeed * Time.deltaTime);
-        controller.Move(curDir * Time.deltaTime);*/
-
-        //--------------------------------------------------------------
     }
-
-    //--------------------------------------------------------------
-
-    /*Vector2 target = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-    curDir = Vector2.SmoothDamp(curDir, target, ref curDirVelocity, Smoothment);
-
-    Vector3 move = (transform.right * curDir.x + transform.forward * curDir.y + Vector3.up * yVel) * Time.deltaTime;
-
-    if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
-    {
-        move.y = jumpForce;
-    }
-    else yVel += gravity * Time.deltaTime;
-
-    controller.Move(move.normalized * movementSpeed);
-    controller.Move(curDir * Time.deltaTime); */
-
 
     void lookAtMouse()
     {
@@ -135,8 +98,33 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(Vector3.up * curMouseMove.x * mouseSensitivity * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision col)
     {
-        GameplayUI.inst.GameIs(other.gameObject == winCollider, 2);
+        // May replace with object pooling
+        if (col.gameObject.GetComponent<CraftingMaterial>() != null)
+        {
+            HUD.hud.AddToInventory(col.gameObject.GetComponent<CraftingMaterial>());
+            Destroy(col.gameObject);
+        }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        //GameplayUI.inst.GameIs(other.gameObject == winCollider, 2);
+    }
+
+    #region UI Inventory
+    void CraftingMaterialPickup()
+    {
+        Collider[] hits = Physics.OverlapBox(gameObject.transform.position, transform.localScale * 4, Quaternion.identity);
+        
+        foreach(Collider hit in hits)
+        {
+            if (hit.gameObject.GetComponent<CraftingMaterial>() != null)
+            {
+                hit.transform.position = Vector3.MoveTowards(hit.transform.position, transform.position, 2 * Time.deltaTime);
+            }
+        }
+    }
+    #endregion
 }
