@@ -58,12 +58,9 @@
   <ItemGroup>
     <Compile Include="Assets\Joshua\Scripts\Gameplay\CraftingMaterial.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Level\LevelUp.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Stats\HealthBar.cs" />
     <Compile Include="Assets\Joshua\Scripts\Gameplay\KeyItem.cs" />
     <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Credits\CreditAlbums.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Combat\Fighter.cs" />
     <Compile Include="Assets\Scripts\UI\Title Screen\MainMenu.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
@@ -78,9 +75,7 @@
     <Compile Include="Assets\Joshua\Scripts\Other\ExtensionMethods.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Pause.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Stats\Progression.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Combat\AIController.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Stats\Health.cs" />
     <Compile Include="Assets\Scripts\Other\CameraFacing.cs" />
     <Compile Include="Assets\Scripts\idamage.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Combat\PatrolPath.cs" />
@@ -95,8 +90,6 @@
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Joshua\Scripts\Other\ItemRegistration.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Environment\SmokeDMG.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Stats\characterClass.cs" />
     <Compile Include="Assets\Joshua\Scripts\Interfaces\UI\IMMButtonHandler.cs" />
     <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Overview\ObjectButtons.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Environment\Machines.cs" />
@@ -107,12 +100,10 @@
     <Compile Include="Assets\Scripts\Other\GlobalScript.cs" />
     <Compile Include="Assets\Joshua\Scripts\Gameplay\Weapon.cs" />
     <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\KeyItemData.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Stats\BaseStats.cs" />
     <Compile Include="Assets\Joshua\Scripts\UI\Gameplay\HUD.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Joshua\Scripts\Interfaces\Gameplay\IWeapon.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInteractWith.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Items\Item.cs" />
     <Compile Include="Assets\Joshua\Scripts\UI\Title Screen &amp; Main Menu\Lights\MainMenuLights.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Quest\QuestObjectActivator.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
