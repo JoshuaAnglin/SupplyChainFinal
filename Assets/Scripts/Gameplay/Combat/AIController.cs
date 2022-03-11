@@ -119,14 +119,13 @@ public class AIController : MonoBehaviour,idamage
             for (int n = 0; n < mmm.transform.childCount; n++)
             {
                 GameObject aaa = mmm.transform.GetChild(n).gameObject;
-                if (aaa.GetComponent<AIController>().change() == "playersighted")
-                    status = enemyStatus.OtherSighted;
+                if (Vector3.Distance(transform.position, aaa.transform.position) < 10)
+                {
+                    if (aaa.GetComponent<AIController>().change() == "playersighted")
+                        status = enemyStatus.OtherSighted;
+                }
             }
         }
-        // PLAYER'S IN RANGE? SWITCH STATES
-        //if (Distance(transform.position, player.position) < 10) status = enemyStatus.PlayerSighted;
-        //else status = enemyStatus.Patrol;
-
         // ENEMY STATE ACTIONS
         switch (status)
         {
