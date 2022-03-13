@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53241b252cbb9c49ac80b70bea97748, type: 3}
   m_Name: Weapon 3
   m_EditorClassIdentifier: 
-  givenID: 2
+  givenID: 202
   givenName: Weapon 3
   givenDescription: Weapon 3 is
   givenWeapon: {fileID: 919132149155446097, guid: 43809af8a16ead44fb40c505999e3363, type: 3}
-  givenImage: {fileID: -797395281046119170, guid: b23ec64c5eaecd34a8cbac108bf7b32d, type: 3}
+  givenSprite: {fileID: 0}
+  givenAttack: 0
+  givenDefense: 0

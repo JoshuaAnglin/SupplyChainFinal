@@ -44,13 +44,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        movement();
+        Movement();
         lookAtMouse();
 
+        OpenUI();
         CraftingMaterialPickup();
     }
 
-    void movement()
+    void Movement()
     {
         // Gets the current keyboard input
         Vector2 target = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -106,6 +107,12 @@ public class PlayerMovement : MonoBehaviour
             HUD.hud.AddToInventory(col.gameObject.GetComponent<CraftingMaterial>());
             Destroy(col.gameObject);
         }
+
+        if (col.gameObject.GetComponent<KeyItem>() != null)
+        {
+            HUD.hud.AddToInventory(col.gameObject.GetComponent<KeyItem>());
+            Destroy(col.gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -116,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
     #region UI Inventory
     void CraftingMaterialPickup()
     {
+
         Collider[] hits = Physics.OverlapBox(gameObject.transform.position, transform.localScale * 4, Quaternion.identity);
         
         foreach(Collider hit in hits)
@@ -125,6 +133,18 @@ public class PlayerMovement : MonoBehaviour
                 hit.transform.position = Vector3.MoveTowards(hit.transform.position, transform.position, 2 * Time.deltaTime);
             }
         }
+    }
+
+    void OpenUI()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+            GameEventSystemGameplay.GESGameplay.OpenInventory();
+
+        if (Input.GetMouseButtonDown(2))
+            HUD.hud.RemoveFromInventory(0);
+
+        // pass into open inventory
+
     }
     #endregion
 }

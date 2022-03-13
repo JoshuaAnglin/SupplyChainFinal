@@ -13,9 +13,6 @@ public class MainMenu : MonoBehaviour
 
     static public MainMenu inst;
 
-    static public bool inOptions, inScenery, inCredits, inPlay, inExit, inCrafting;
-    static public Color col;
-
     void Awake()
     {
         Time.timeScale = 1;
@@ -24,52 +21,26 @@ public class MainMenu : MonoBehaviour
 
     void OnEnable()
     {
-        GameEventSystem.GES.onDefaultState += DefaultPosition;
-        GameEventSystem.GES.onWithinAnArea += WithinArea;
-        GameEventSystem.GES.onPlayStage += PickedStage;
+        GameEventSystemMainMenu.GESMainMenu.onDefaultState += DefaultPosition;
+        GameEventSystemMainMenu.GESMainMenu.onWithinAnArea += WithinArea;
+        GameEventSystemMainMenu.GESMainMenu.onPlayStage += PickedStage;
     }
 
     void OnDisable()
     {
-        GameEventSystem.GES.onDefaultState -= DefaultPosition;
-        GameEventSystem.GES.onWithinAnArea -= WithinArea;
-        GameEventSystem.GES.onPlayStage -= PickedStage;
+        GameEventSystemMainMenu.GESMainMenu.onDefaultState -= DefaultPosition;
+        GameEventSystemMainMenu.GESMainMenu.onWithinAnArea -= WithinArea;
+        GameEventSystemMainMenu.GESMainMenu.onPlayStage -= PickedStage;
     }
 
     void Update()
     {
         // Within Area
-        if (Input.GetKeyDown(KeyCode.Escape) && animationState != -1) BackToDefaultPosition();
-    }
-
-    public void BackToDefaultPosition()
-    {
-        GameEventSystem.GES.DefaultState();
-
-        if (inOptions) inOptions = false;
-        if (inScenery) inScenery = false;
-        if (inCredits) inCredits = false;
-        if (inPlay) inPlay = false;
-        if (inExit) inExit = false;
-        if (inCrafting) inCrafting = false;
-    }
-
-    void WithinArea(int animState)
-    {
-        overview.SetActive(false);
-        inArea.SetActive(true);
-    }
-
-    public void DefaultPosition()
-    {
-        overview.SetActive(true);
-        inArea.SetActive(false);
-    }
-
-    void PickedStage()
-    {
-        GameEventSystem.GES.WithinAnArea(animationState = 0);
-        inArea.SetActive(false);
+        if (GlobalScript.gs == GlobalScript.GameStatus.inMainMenu && Input.GetKeyDown(KeyCode.Escape) && animationState != -1)
+        {
+            BackToDefaultPosition();
+            MMCamera.backAction.Clear();
+        }
     }
 
     #region 3D Object Buttons
@@ -82,56 +53,85 @@ public class MainMenu : MonoBehaviour
 
     public void PlayStage()
     {
-        GameEventSystem.GES.PlayStage();
+        GameEventSystemMainMenu.GESMainMenu.PlayStage();
+        GlobalScript.mms = GlobalScript.MainMenuStatus.inPlay;
     }
 
     public void ExitGame()
     {
-        GameEventSystem.GES.WithinAnArea(animationState = 1);
-        Application.Quit();
+        GameEventSystemMainMenu.GESMainMenu.WithinAnArea(animationState = 1);
+        GlobalScript.mms = GlobalScript.MainMenuStatus.inExit;
     }
 
     public void Crafting()
-    {GameEventSystem.GES.WithinAnArea(animationState = 2);}
+    {
+        GameEventSystemMainMenu.GESMainMenu.WithinAnArea(animationState = 2);
+        GlobalScript.mms = GlobalScript.MainMenuStatus.inCrafting;
+        MMCamera.backAction.Add(BackToDefaultPosition);
+    }
 
     public void Options()
-    {GameEventSystem.GES.WithinAnArea(animationState = 3);}
+    {
+        GameEventSystemMainMenu.GESMainMenu.WithinAnArea(animationState = 3);
+        GlobalScript.mms = GlobalScript.MainMenuStatus.inOptions;
+        MMCamera.backAction.Add(BackToDefaultPosition);
+    }
 
     public void Scenery()
-    {GameEventSystem.GES.WithinAnArea(animationState = 4);}
+    {
+        GameEventSystemMainMenu.GESMainMenu.WithinAnArea(animationState = 4);
+        GlobalScript.mms = GlobalScript.MainMenuStatus.inScenery;
+        MMCamera.backAction.Add(BackToDefaultPosition);
+    }
 
     public void Credits()
-    {GameEventSystem.GES.WithinAnArea(animationState = 5);}
-
-    public void SwitchState()
     {
-        switch (GlobalScript.GameState)
-        {
-            case GlobalScript.GameplayStatus.inTitleScreen:
-                foreach (Transform go in transform)
-                { 
-                    go.gameObject.SetActive(false);
-                    transform.GetChild(0).gameObject.SetActive(true);
-                }
-                break;
-
-            case GlobalScript.GameplayStatus.inMainMenu:
-                foreach (Transform go in transform)
-                {
-                    go.gameObject.SetActive(true);
-                }
-                inArea.SetActive(false);
-                break;
-        }
+        GameEventSystemMainMenu.GESMainMenu.WithinAnArea(animationState = 5);
+        GlobalScript.mms = GlobalScript.MainMenuStatus.inCredits;
+        MMCamera.backAction.Add(BackToDefaultPosition);
     }
-    #endregion
 
-    #region Entering & Coming Back From Stage
-
-    void WelcomeBack()
+    public void ModifyOptions()
     {
+        Debug.Log("Options");
+        GameEventSystemMainMenu.GESMainMenu.WithinAnArea(animationState = 31);
+        MMCamera.backAction.Add(BackToOptions);
+    }
 
+    public void GoToRadio()
+    {
+        Debug.Log("Options");
+        GameEventSystemMainMenu.GESMainMenu.WithinAnArea(animationState = 32);
+        MMCamera.backAction.Add(BackToOptions);
     }
 
     #endregion
+
+    public void BackToDefaultPosition()
+    {
+        GameEventSystemMainMenu.GESMainMenu.WithinAnArea(animationState = -1);
+        GameEventSystemMainMenu.GESMainMenu.DefaultState();
+    }
+
+    void BackToOptions()
+    {GameEventSystemMainMenu.GESMainMenu.WithinAnArea(animationState = 3);}
+
+    void WithinArea(int animState)
+    {
+        overview.SetActive(false);
+        inArea.SetActive(true);
+    }
+
+    public void DefaultPosition()
+    {
+        GlobalScript.mms = GlobalScript.MainMenuStatus.Default;
+        overview.SetActive(true);
+        inArea.SetActive(false);
+    }
+
+    void PickedStage()
+    {
+        GameEventSystemMainMenu.GESMainMenu.WithinAnArea(animationState = 0);
+        inArea.SetActive(false);
+    }
 }

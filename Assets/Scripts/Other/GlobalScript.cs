@@ -4,19 +4,33 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GlobalScript : MonoBehaviour
+abstract public class GlobalScript : MonoBehaviour
 {
-    public enum GameplayStatus
+    public enum GameStatus
     {
         inTitleScreen,
         inMainMenu,
         inGame
     }
+    static public GameStatus gs;
 
-    static public GameplayStatus GameState;
+    public enum MainMenuStatus
+    {
+        Default,
+        inOptions,
+        inScenery,
+        inCredits,
+        inPlay,
+        inExit,
+        inCrafting,
+        ComingBackFromGameplay
+    }
+    static public MainMenuStatus mms;
 
     static public float musicVolume = 50f;
     static public float soundEffectsVolume = 50f;
+
+    static public int fsMode;
 
     static public string unPointed = "#222222";
     static public string pointed = "#446DCB";
@@ -31,9 +45,7 @@ public class GlobalScript : MonoBehaviour
     }
 
     static public void SwitchScenes(int scene)
-    {
-        SceneManager.LoadScene(scene);
-    }
+        {SceneManager.LoadScene(scene);}
 
     static public void OnButton(Image btn, string colour, AudioSource soundSource, AudioClip sound, bool playSound)
     {
