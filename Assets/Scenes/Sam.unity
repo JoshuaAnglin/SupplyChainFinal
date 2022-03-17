@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0.99999905, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.000017350281, g: 0.000000027747268, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -50255,6 +50255,10 @@ PrefabInstance:
       propertyPath: isWeapon
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4464168038360719374, guid: 0c6f95acbcc3ead49ac4fd9321eadac3, type: 3}
+      propertyPath: itemSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2c7459a6c6d891743ad5383dbcd4ded6, type: 3}
     - target: {fileID: 4993081449275536540, guid: 0c6f95acbcc3ead49ac4fd9321eadac3, type: 3}
       propertyPath: m_Name
       value: Magnetic Keycard
