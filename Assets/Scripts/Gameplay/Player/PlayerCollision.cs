@@ -51,7 +51,7 @@ namespace SCG.Player
         void Pickup()
         {
             Rigidbody rb = holding.GetComponent<Rigidbody>();
-            currentSelectedObject.text = holding.name;
+            //currentSelectedObject.text = holding.name;
             
         }
 
