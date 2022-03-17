@@ -2,136 +2,71 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
-public class MainMenu : MonoBehaviour
+namespace SCG.MainMenu
 {
-    int animationState;
-
-    [SerializeField] GameObject overview, inArea, aaStageSelection, aaCrafting, aaCredits, aaOptions;
-    [Space] [Space] [Space]
-    public Text anP1Text, aNP2Text;
-
-    static public MainMenu inst;
-
-    static public bool inOptions, inScenery, inCredits, inPlay, inExit, inCrafting;
-    static public Color col;
-
-    void Awake()
+    public class MainMenu : MonoBehaviour
     {
-        Time.timeScale = 1;
-        inst = this;
-    }
+        [SerializeField] AudioClip buttonOver;
+        [SerializeField] AudioClip buttonSelected;
+        [SerializeField] AudioClip buttonTransfer;
+        [SerializeField] AudioSource bgm;
+        [SerializeField] AudioSource soundEffects;
+        [SerializeField] Text musicPercentage;
+        [SerializeField] Text sePercentage;
+        [SerializeField] Slider musicSlider;
+        [SerializeField] Slider seSlider;
+        [SerializeField] GameObject options;
 
-    void OnEnable()
-    {
-        GameEventSystem.GES.onDefaultState += DefaultPosition;
-        GameEventSystem.GES.onWithinAnArea += WithinArea;
-        GameEventSystem.GES.onPlayStage += PickedStage;
-    }
-
-    void OnDisable()
-    {
-        GameEventSystem.GES.onDefaultState -= DefaultPosition;
-        GameEventSystem.GES.onWithinAnArea -= WithinArea;
-        GameEventSystem.GES.onPlayStage -= PickedStage;
-    }
-
-    void Update()
-    {
-        // Within Area
-        if (Input.GetKeyDown(KeyCode.Escape) && animationState != -1) BackToDefaultPosition();
-    }
-
-    public void BackToDefaultPosition()
-    {
-        GameEventSystem.GES.DefaultState();
-
-        if (inOptions) inOptions = false;
-        if (inScenery) inScenery = false;
-        if (inCredits) inCredits = false;
-        if (inPlay) inPlay = false;
-        if (inExit) inExit = false;
-        if (inCrafting) inCrafting = false;
-    }
-
-    void WithinArea(int animState)
-    {
-        overview.SetActive(false);
-        inArea.SetActive(true);
-    }
-
-    public void DefaultPosition()
-    {
-        overview.SetActive(true);
-        inArea.SetActive(false);
-    }
-
-    void PickedStage()
-    {
-        GameEventSystem.GES.WithinAnArea(animationState = 0);
-        inArea.SetActive(false);
-    }
-
-    #region 3D Object Buttons
-
-    public void StageSelector()
-    {
-        inArea.SetActive(true);
-        aaStageSelection.SetActive(true);  
-    }
-
-    public void PlayStage()
-    {
-        GameEventSystem.GES.PlayStage();
-    }
-
-    public void ExitGame()
-    {
-        GameEventSystem.GES.WithinAnArea(animationState = 1);
-        Application.Quit();
-    }
-
-    public void Crafting()
-    {GameEventSystem.GES.WithinAnArea(animationState = 2);}
-
-    public void Options()
-    {GameEventSystem.GES.WithinAnArea(animationState = 3);}
-
-    public void Scenery()
-    {GameEventSystem.GES.WithinAnArea(animationState = 4);}
-
-    public void Credits()
-    {GameEventSystem.GES.WithinAnArea(animationState = 5);}
-
-    public void SwitchState()
-    {
-        switch (GlobalScript.GameState)
+        void Start()
         {
-            case GlobalScript.GameplayStatus.inTitleScreen:
-                foreach (Transform go in transform)
-                { 
-                    go.gameObject.SetActive(false);
-                    transform.GetChild(0).gameObject.SetActive(true);
-                }
-                break;
+            Time.timeScale = 1;
 
-            case GlobalScript.GameplayStatus.inMainMenu:
-                foreach (Transform go in transform)
-                {
-                    go.gameObject.SetActive(true);
-                }
-                inArea.SetActive(false);
-                break;
+            options.gameObject.SetActive(true);
+            musicSlider.value = GlobalScript.musicVolume;
+            seSlider.value = GlobalScript.soundEffectsVolume;
+            options.gameObject.SetActive(false);
+
+            GlobalScript.Volume(musicSlider, musicPercentage, ref GlobalScript.musicVolume, bgm);
+            GlobalScript.Volume(seSlider, sePercentage, ref GlobalScript.soundEffectsVolume, soundEffects);
+
+            musicSlider.onValueChanged.AddListener(delegate { GlobalScript.Volume(musicSlider,musicPercentage, ref GlobalScript.musicVolume, bgm); });
+            seSlider.onValueChanged.AddListener(delegate { GlobalScript.Volume(seSlider, sePercentage, ref GlobalScript.soundEffectsVolume, soundEffects); });
+        }
+
+        public void PlayGame()
+        {
+            soundEffects.PlayOneShot(buttonTransfer);
+            SceneManager.LoadScene(1);
+        }
+
+        public void MenuStatus(Image menu)
+        {
+            GlobalScript.OpenMenu(soundEffects, buttonSelected, menu);
+        }
+
+        public void setAudio()
+        {
+            musicSlider.value = GlobalScript.musicVolume;
+            seSlider.value = GlobalScript.soundEffectsVolume;
+        }
+
+        public void Hovered(Image btn)
+        {
+            GlobalScript.OnButton(btn, GlobalScript.pointed, soundEffects, buttonOver, true);
+        }
+
+        public void Unhovered(Image btn)
+        {
+            GlobalScript.OnButton(btn, GlobalScript.unPointed, null, null, false);
+        }
+
+        public void QuitGame()
+        {
+            soundEffects.PlayOneShot(buttonTransfer);
+            Application.Quit(); 
         }
     }
-    #endregion
-
-    #region Entering & Coming Back From Stage
-
-    void WelcomeBack()
-    {
-
-    }
-
-    #endregion
 }

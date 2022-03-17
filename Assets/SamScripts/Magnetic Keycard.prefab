@@ -132,7 +132,7 @@ MonoBehaviour:
   isWeapon: 1
   isItem: 0
   extraStats: 20
-  itemSprite: {fileID: 21300000, guid: 2c7459a6c6d891743ad5383dbcd4ded6, type: 3}
+  itemSprite: {fileID: 21300000, guid: 4c72f3c555f96274787f31379fabb6ff, type: 3}
   weaponStrenght: 0
   affectHP: 0
   affectStr: 0
