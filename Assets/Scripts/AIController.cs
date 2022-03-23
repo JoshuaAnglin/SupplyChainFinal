@@ -44,13 +44,15 @@ public class AIController : MonoBehaviour,idamage
     float hitcooldown = 1.0f;
 
     float gothit = 0.0f;
-    int viewcircle = 4;
+    float regen = 0;
     float find = 0;
+    bool alive = true;
     enum enemyStatus
     {
         Patrol,
         PlayerSighted,
-        OtherSighted
+        OtherSighted,
+        Dead
     }
 
     enemyStatus status;
@@ -71,12 +73,15 @@ public class AIController : MonoBehaviour,idamage
         updatehealth();
         tex.text =health2 + "%";
         health.GetChild(0).transform.rotation = new Quaternion(0, 180, 0, 0);
+        transform.GetChild(1).GetChild(3).transform.gameObject.SetActive(false);
+        alive = true;
     }
 
     void Update()
     {
         health.LookAt(player);
-        status = enemyStatus.Patrol;   
+        status = enemyStatus.Patrol;
+        //raycast searching for player
         for (int n = 0; n < 9; n++)
         {
             Vector3 place = transform.forward * n + transform.right * (9 - n);
@@ -113,6 +118,10 @@ public class AIController : MonoBehaviour,idamage
                 find = Time.time;
             }
         }
+
+        //raycast searching for player
+
+        //checking local enemies enenmystatus
         if (Distance(transform.position, player.position) < 7 && find + 2 > Time.time) status = enemyStatus.PlayerSighted;
         if (status != enemyStatus.PlayerSighted)
         {
@@ -126,6 +135,17 @@ public class AIController : MonoBehaviour,idamage
                 }
             }
         }
+        //checking local enemies enenmystatus
+        if (health2 <= 0)
+        {
+            alive = false;
+            status = enemyStatus.Dead;
+        }
+        if (alive == false)
+            status = enemyStatus.Dead;
+
+        if (status != enemyStatus.Dead)
+            transform.GetChild(1).GetChild(4).transform.Rotate((0-transform.GetChild(1).GetChild(4).transform.rotation.eulerAngles.x)*Time.deltaTime, 0, 0);
         // ENEMY STATE ACTIONS
         switch (status)
         {
@@ -136,6 +156,9 @@ public class AIController : MonoBehaviour,idamage
 
             case enemyStatus.PlayerSighted:
                 NMA.destination = player.position;
+                transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(true);
+                transform.GetChild(1).GetChild(5).transform.Rotate(0, 180*Time.deltaTime, 0);
+                transform.GetChild(1).GetChild(8).transform.Rotate(0, 180 * Time.deltaTime, 0);
                 if (Physics.Raycast(transform.position, transform.forward, out obj, hitrange))
                 {
                     if (obj.transform.GetComponent<idamage>() != null)
@@ -145,13 +168,15 @@ public class AIController : MonoBehaviour,idamage
                         {
                             att.addhealth(damage);
                             lasthit = Time.time;
-                            transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(true);
                         }
                     }
                 }
                 break;
             case enemyStatus.OtherSighted:
                 NMA.destination = player.position;
+                transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(true);
+                transform.GetChild(1).GetChild(5).transform.Rotate(0, 180 * Time.deltaTime, 0);
+                transform.GetChild(1).GetChild(8).transform.Rotate(0, 180 * Time.deltaTime, 0);
                 if (Physics.Raycast(transform.position, transform.forward, out obj, hitrange))
                 {
                     if (obj.transform.GetComponent<idamage>() != null)
@@ -161,14 +186,26 @@ public class AIController : MonoBehaviour,idamage
                         {
                             att.addhealth(damage);
                             lasthit = Time.time;
-                            transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(true);
                         }
                     }
                 }
                 break;
+            case enemyStatus.Dead:
+                transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(false);
+                if (transform.GetChild(1).GetChild(4).transform.rotation.eulerAngles.x < 45)
+                    transform.GetChild(1).GetChild(4).transform.Rotate(45 * Time.deltaTime, 0, 0);
+                if (Time.time > regen + 0.5f)
+                {
+                    health2 += 2;
+                    regen = Time.time;
+                }
+                if (health2 >= maxhealth)
+                {
+                    alive = true; tex.text = health2 + "%";
+                }
+                updatehealth();
+                break;
         }
-        if (health2 <= 0)
-            gameObject.SetActive(false);
     }
 
     // RETURNS POSITIVE FLOAT OF FIRST AND SECOND
@@ -211,7 +248,8 @@ public class AIController : MonoBehaviour,idamage
     public void addhealth(int amount)
     {
         if (status == enemyStatus.Patrol) amount = -maxhealth/2;
-        if (Time.time > gothit + 0.5f)
+        if (status == enemyStatus.Dead) amount = 0;
+        if (Time.time > gothit + 0.5f && amount != 0)
         {
             health2 += amount;
             if (health2 < minhealth) health2 = minhealth;
