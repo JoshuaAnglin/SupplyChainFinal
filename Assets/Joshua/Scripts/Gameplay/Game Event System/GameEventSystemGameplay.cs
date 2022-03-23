@@ -41,8 +41,6 @@ public class GameEventSystemGameplay : MonoBehaviour
                 int id = ItemRegistration.ir.storageWIPickUp[a];
 
                 inventoryPickUps[a].sprite = id != -1 ? ItemRegistration.ir.GetCraftingMaterial(id).GivenSprite : null;
-
-                Debug.Log(inventoryPickUps[a]);
             }
         }
     }

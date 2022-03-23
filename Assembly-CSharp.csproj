@@ -56,13 +56,14 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\CraftingMaterial.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\Items\CraftingMaterial.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\KeyItem.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\Items\KeyItem.cs" />
     <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Credits\CreditAlbums.cs" />
     <Compile Include="Assets\Scripts\UI\Title Screen\MainMenu.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\Static.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Quest\QuestManager.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Startup.cs" />
@@ -83,21 +84,25 @@
     <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Radio\RadioSpinners.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\QuestComplete.cs" />
     <Compile Include="Assets\SamScripts\GameMenu.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\Cameras\CameraControl.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\MMBack.cs" />
     <Compile Include="Assets\SamScripts\BasicStats.cs" />
     <Compile Include="Assets\SamScripts\Items.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_DeleteAfterDelay.cs" />
     <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\MMCamera.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\ItemRegistration.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\Items\ItemRegistration.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\Cameras\PlayerCamera.cs" />
     <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\ObjectButtons.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Environment\Machines.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
     <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Options\PinboardNotes.cs" />
     <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\GameEventSystemMainMenu.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Interfaces\IPickUp.cs" />
     <Compile Include="Assets\SamScripts\ItemButton.cs" />
     <Compile Include="Assets\Scripts\Other\GlobalScript.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\Weapon.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\Items\Weapon.cs" />
     <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\KeyItemData.cs" />
     <Compile Include="Assets\Joshua\Scripts\Gameplay\Game Event System\GameEventSystemGameplay.cs" />
     <Compile Include="Assets\Joshua\Scripts\Gameplay\UI\HUD.cs" />
@@ -111,9 +116,11 @@
     <Compile Include="Assets\SamScripts\GameManager.cs" />
     <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Title Screen\Radio.cs" />
     <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\CraftingMaterialData.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\Items\Item.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Interfaces\IInteractable.cs" />
+    <Compile Include="Assets\Joshua\Scripts\Gameplay\Player\JPlayerMovement.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\Static.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\MMBack.cs" />
+    <Compile Include="Assets\Scripts\PlayerCollision.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Sounds\Sound Effects\Notes.txt" />

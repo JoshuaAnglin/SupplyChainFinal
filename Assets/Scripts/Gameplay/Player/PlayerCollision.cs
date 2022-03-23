@@ -8,13 +8,11 @@ namespace SCG.Player
 {
     public class PlayerCollision : MonoBehaviour
     {
-        RaycastHit obj;
-        float rayDist = 30f;
+        RaycastHit itemHit;
+        float rayDist = 4f;
 
         Transform hit;
         Transform holding;
-
-        [SerializeField] Text currentSelectedObject;
 
         void Update()
         {
@@ -25,14 +23,20 @@ namespace SCG.Player
         void scanForItem()
         {
             // If raycast hits something
-            if (Physics.Raycast(transform.position, transform.forward, out obj, rayDist))
+            if (Physics.Raycast(transform.position, transform.forward, out itemHit, rayDist))
             {
-                // If it holds the interface 'IInteractWith'
-                if (obj.transform.GetComponent<IInteractWith>() != null)
+                // If it holds the interface 'IPickUp'
+                if (itemHit.transform.GetComponent<IPickUp>() != null)
                 {
-                   
+                    // Change it's layer to 'Hovered
+                    hit = itemHit.transform;
+                    hit.transform.gameObject.layer = LayerMask.NameToLayer("Hovered");
+
+                    // If the player isn't holding an item, set the raycasted item to 'holding'
+                    if (!holding) holding = itemHit.transform;
                 }
 
+                // {CAUSES FLICKERING}
                 else if (hit)
                 {
                     hit.transform.gameObject.layer = LayerMask.NameToLayer("Default");
@@ -51,8 +55,8 @@ namespace SCG.Player
         void Pickup()
         {
             Rigidbody rb = holding.GetComponent<Rigidbody>();
-            currentSelectedObject.text = holding.name;
-            
+            rb.velocity = holding.GetComponent<Item>().launchSpeed * (transform.GetChild(0).position - holding.transform.position);
+            rb.freezeRotation = true;
         }
 
         // Dropping items
@@ -60,7 +64,6 @@ namespace SCG.Player
         {
             holding.GetComponent<Rigidbody>().freezeRotation = false;
             holding = null;
-            currentSelectedObject.text = "---";
         }
     }
 }
