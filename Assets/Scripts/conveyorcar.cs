@@ -34,7 +34,8 @@ public class conveyorcar : MonoBehaviour
         }
         if (Time.time > 22.5f + secs && turning != 3)
         {
-            transform.gameObject.SetActive(false);
+            //transform.gameObject.SetActive(false);
+            Destroy(transform.gameObject);
         }
     }
 }

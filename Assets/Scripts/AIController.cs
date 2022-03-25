@@ -47,8 +47,10 @@ public class AIController : MonoBehaviour,idamage
     float regen = 0;
     float find = 0;
     bool alive = true;
+    GameObject lastobj;
     enum enemyStatus
     {
+        Box,
         Patrol,
         PlayerSighted,
         OtherSighted,
@@ -63,9 +65,8 @@ public class AIController : MonoBehaviour,idamage
         player = FindObjectOfType<BasicStats>().transform;
         NMA = GetComponent<NavMeshAgent>();
         RandomLocation();
-
-        health = transform.GetChild(0);
         stayFor = UnityEngine.Random.Range(5, 11);
+        health = transform.GetChild(0);
     }
 
     void Start()
@@ -75,12 +76,22 @@ public class AIController : MonoBehaviour,idamage
         health.GetChild(0).transform.rotation = new Quaternion(0, 180, 0, 0);
         transform.GetChild(1).GetChild(3).transform.gameObject.SetActive(false);
         alive = true;
+        lastobj = transform.GetChild(0).gameObject;
     }
 
     void Update()
     {
-        health.LookAt(player);
         status = enemyStatus.Patrol;
+        Vector3 boxdest = new Vector3(0,0,0);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 4.0f);
+        foreach (Collider col in hitColliders)
+        {
+            if (col.GetComponent<Rigidbody>() != null)
+            {
+                boxdest = col.transform.position - transform.forward * 2;
+                status = enemyStatus.Box;
+            }
+        }
         //raycast searching for player
         for (int n = 0; n < 9; n++)
         {
@@ -89,7 +100,7 @@ public class AIController : MonoBehaviour,idamage
             //Debug.DrawRay(transform.position, (place) * (5 / dist), Color.yellow, 5.0f);
             if (Physics.Raycast(transform.position, place, out obj, 50 / dist))
             {
-                if (obj.transform.GetComponent<idamage>() != null)
+                if (obj.transform.GetComponent<idamage>() != null && obj.transform.tag == "Player")
                 {
                     status = enemyStatus.PlayerSighted;
                     find = Time.time;
@@ -103,7 +114,7 @@ public class AIController : MonoBehaviour,idamage
             //Debug.DrawRay(transform.position, (place) * (5 / dist), Color.yellow, 1.0f);
             if (Physics.Raycast(transform.position, place, out obj, 50 / dist))
             {
-                if (obj.transform.GetComponent<idamage>() != null)
+                if (obj.transform.GetComponent<idamage>() != null && obj.transform.tag == "Player")
                 {
                     status = enemyStatus.PlayerSighted;
                     find = Time.time;
@@ -112,7 +123,7 @@ public class AIController : MonoBehaviour,idamage
         }
         if (Physics.Raycast(transform.position, transform.forward, out obj, 5))
         {
-            if (obj.transform.GetComponent<idamage>() != null)
+            if (obj.transform.GetComponent<idamage>() != null && obj.transform.tag == "Player")
             {
                 status = enemyStatus.PlayerSighted;
                 find = Time.time;
@@ -153,6 +164,29 @@ public class AIController : MonoBehaviour,idamage
                 StartCoroutine(MoveAround());
                 transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(false);
                 break;
+            case enemyStatus.Box:
+                NMA.destination = boxdest;
+                transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(false);
+                Collider[] boxes = Physics.OverlapSphere(transform.position, 2.0f);
+                foreach (Collider col in boxes)
+                { 
+                    if (col.transform.GetComponent<ipickup>() != null)
+                    {
+                        ipickup item = col.transform.GetComponent<ipickup>();
+                        lastobj = col.transform.gameObject;
+                        Vector3 boxlift = transform.position + transform.forward * 2f;
+                        item.grab();
+                        item.setpos(new Vector3(boxlift.x, boxlift.y + 0.25f, boxlift.z));
+                        NMA.destination = new Vector3(5,2,20);
+                    }
+                }
+                if (Vector3.Distance(lastobj.transform.position, transform.position) > 2.0f)
+                {
+                    if (lastobj.transform.GetComponent<ipickup>() != null)
+                        lastobj.transform.GetComponent<ipickup>().drop();
+                }
+
+                break;
 
             case enemyStatus.PlayerSighted:
                 NMA.destination = player.position;
@@ -161,7 +195,7 @@ public class AIController : MonoBehaviour,idamage
                 transform.GetChild(1).GetChild(8).transform.Rotate(0, 180 * Time.deltaTime, 0);
                 if (Physics.Raycast(transform.position, transform.forward, out obj, hitrange))
                 {
-                    if (obj.transform.GetComponent<idamage>() != null)
+                    if (obj.transform.GetComponent<idamage>() != null && obj.transform.tag == "Player")
                     {
                         idamage att = obj.transform.GetComponent<idamage>();
                         if (Time.time > lasthit + hitcooldown)
@@ -179,7 +213,7 @@ public class AIController : MonoBehaviour,idamage
                 transform.GetChild(1).GetChild(8).transform.Rotate(0, 180 * Time.deltaTime, 0);
                 if (Physics.Raycast(transform.position, transform.forward, out obj, hitrange))
                 {
-                    if (obj.transform.GetComponent<idamage>() != null)
+                    if (obj.transform.GetComponent<idamage>() != null && obj.transform.tag == "Player")
                     {
                         idamage att = obj.transform.GetComponent<idamage>();
                         if (Time.time > lasthit + hitcooldown)

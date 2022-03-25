@@ -66,8 +66,10 @@
     <Compile Include="Assets\Scripts\Gameplay\Quest\QuestManager.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Startup.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\Scripts\grabbing.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\move.cs" />
+    <Compile Include="Assets\Scripts\ipickup.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\GameplayUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\SamScripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\pickup.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
@@ -128,9 +131,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\Scripts\ipickup.cs" />
-    <Compile Include="Assets\Scripts\pickup.cs" />
-    <Compile Include="Assets\Scripts\grabbing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Sounds\Sound Effects\Notes.txt" />
