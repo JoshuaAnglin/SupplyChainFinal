@@ -1025,7 +1025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105756898}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00017052633}
-  m_LocalPosition: {x: 0.50255823, y: 0.04, z: -7.93}
+  m_LocalPosition: {x: -6.38, y: 0.04, z: -7.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1792424855}
@@ -3722,15 +3722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5136adfb8f3e53a4db79a234f0f34a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCategory: 
-  ub: 0
-  blurIntensity: 0
-  blurPercentage: --
-  yellowIntensity: 0
-  yellowPercentage: --
-  tunnelVisionIntensity: 0
-  tunnelVisionPercentage: --
-  colourblindnesses: 8
 --- !u!1 &811968430
 GameObject:
   m_ObjectHideFlags: 0
@@ -5018,7 +5009,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20802
+  m_Name: pb_Mesh25820
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6363,7 +6354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431461264}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.05, y: 0.25, z: -0.26}
+  m_LocalPosition: {x: -4.76, y: 0.35, z: -0.26}
   m_LocalScale: {x: 0.4769, y: 0.4769, z: 0.4769}
   m_Children: []
   m_Father: {fileID: 1792424855}

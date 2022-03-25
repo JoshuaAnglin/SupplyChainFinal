@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\UI\Gameplay\Startup.cs" />
     <Compile Include="Assets\Scripts\move.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
+    <Compile Include="Assets\Scripts\PlayerCollision.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\GameplayUI.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player\PlayerCollision.cs" />
@@ -120,7 +121,6 @@
     <Compile Include="Assets\Joshua\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Joshua\Scripts\Gameplay\Player\JPlayerMovement.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
-    <Compile Include="Assets\Scripts\PlayerCollision.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Sounds\Sound Effects\Notes.txt" />
