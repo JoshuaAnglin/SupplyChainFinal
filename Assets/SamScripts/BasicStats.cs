@@ -39,7 +39,7 @@ public class BasicStats : MonoBehaviour,idamage
        
         if (playerLvL < maxLevel)
         {
-            if (currentXP >= expToNextLevel[playerLvL])
+            while (currentXP >= expToNextLevel[playerLvL])
             {
                 currentXP -= expToNextLevel[playerLvL];
                 playerLvL++;

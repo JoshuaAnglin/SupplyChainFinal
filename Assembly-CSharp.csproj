@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -47,80 +47,90 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.14</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.11</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2020.3.19f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\Items\CraftingMaterial.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\LevelUp.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\Items\KeyItem.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Credits\CreditAlbums.cs" />
     <Compile Include="Assets\Scripts\UI\Title Screen\MainMenu.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\Static.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Quest\QuestManager.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Startup.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\Scripts\grabbing.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\move.cs" />
+    <Compile Include="Assets\Scripts\ipickup.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
-    <Compile Include="Assets\Scripts\PlayerCollision.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\GameplayUI.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player\PlayerCollision.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\WeaponData.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Options\Options.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\Pause.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Combat\AIController.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Stats\Progression.cs" />
+    <Compile Include="Assets\Scripts\AIController.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Other\CameraFacing.cs" />
     <Compile Include="Assets\Scripts\idamage.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Combat\PatrolPath.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Radio\RadioSpinners.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Scripts\UI\Gameplay\QuestComplete.cs" />
     <Compile Include="Assets\SamScripts\GameMenu.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\Cameras\CameraControl.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\MMBack.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\SamScripts\BasicStats.cs" />
     <Compile Include="Assets\SamScripts\Items.cs" />
+    <Compile Include="Assets\Scripts\conveyorcar.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_DeleteAfterDelay.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\MMCamera.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\Items\ItemRegistration.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\Cameras\PlayerCamera.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\ObjectButtons.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Environment\SmokeDMG.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Stats\characterClass.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Environment\Machines.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Options\PinboardNotes.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\GameEventSystemMainMenu.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Interfaces\IPickUp.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\SamScripts\ItemButton.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Scripts\Other\GlobalScript.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\Items\Weapon.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\KeyItemData.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\Game Event System\GameEventSystemGameplay.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\UI\HUD.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInteractWith.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Lights\MainMenuLights.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Items\Item.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\Scripts\inst.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Quest\QuestObjectActivator.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\ScrollAreas.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Overview\ObjectButtonIndicators.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\SamScripts\GameManager.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Title Screen &amp; Main Menu\UI\Title Screen\Radio.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Scriptable Objects\CraftingMaterialData.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\Items\Item.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Interfaces\IInteractable.cs" />
-    <Compile Include="Assets\Joshua\Scripts\Gameplay\Player\JPlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\pickup.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\DownloadedAssets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Sounds\Sound Effects\Notes.txt" />
@@ -131,7 +141,9 @@
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft Scroll.shader" />
     <None Include="Assets\Prefabs\Sounds\BGM\(READ).txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\_Effects\MuzzleFlashes\!MuzzleFlash Differences.txt" />
+    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S Alpha-Specular TintColor.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
@@ -166,6 +178,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\DownloadedAssets\JMO Assets\WarFX\Shaders\WFX_S AlphaBlend NoSoftParticles.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <None Include="Assets\DownloadedAssets\Toon Gas Station\Documentation\Toon Gas Station Documentation.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -816,12 +829,6 @@
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>

@@ -57,6 +57,8 @@ namespace SCG.Player
             Rigidbody rb = holding.GetComponent<Rigidbody>();
             rb.velocity = holding.GetComponent<Item>().launchSpeed * (transform.GetChild(0).position - holding.transform.position);
             rb.freezeRotation = true;
+            //currentSelectedObject.text = holding.name;
+            
         }
 
         // Dropping items
