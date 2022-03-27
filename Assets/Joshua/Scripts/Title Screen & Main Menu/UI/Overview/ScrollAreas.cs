@@ -11,7 +11,8 @@ public class ScrollAreas : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     void Update()
     {
-        if (mouseOverArea) GameEventSystemMainMenu.GESMainMenu.CameraTurn(direction);
+        if (mouseOverArea && GlobalScript.mms == GlobalScript.MainMenuStatus.Default) 
+            GameEventSystemMainMenu.GESMainMenu.CameraTurn(direction);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

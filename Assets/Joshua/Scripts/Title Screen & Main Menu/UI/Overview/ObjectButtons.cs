@@ -11,11 +11,7 @@ public class ObjectButtons : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (GlobalScript.gs == GlobalScript.GameStatus.inMainMenu)
-        {
-            MainMenu.inst.anP1Text.text = Title;
-            MainMenu.inst.aNP2Text.text = Description;
-        }
+        if (GlobalScript.gs == GlobalScript.GameStatus.inMainMenu) MainMenu.inst.setScreenText(Title, Description);
     }
 
     void OnMouseDown()

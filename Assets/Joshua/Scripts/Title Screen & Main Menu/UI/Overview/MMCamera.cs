@@ -67,32 +67,6 @@ public class MMCamera : MonoBehaviour
             OptionsScrollLimit();
     }
 
-    #region Animation Events
-
-    void ActivateDoor()
-    { animDoor.SetInteger("DoorState", 0); }
-
-    void GoToStage()
-    { SceneManager.LoadScene(2); }
-
-    void setToMainMenu()
-    {
-        GlobalScript.gs = GlobalScript.GameStatus.inMainMenu;
-        GlobalScript.mms = GlobalScript.MainMenuStatus.Default;
-        mainMenu.gameObject.SetActive(true);
-    }
-
-    void DefaultAnimEvents()
-    {
-        DisableAnimator();
-        rotClamp = 0;
-    }
-
-    void DisableAnimator()
-    { anim.enabled = false; }
-
-    #endregion
-
     #region Subscribed Events
 
     void UponStarting()
@@ -142,6 +116,32 @@ public class MMCamera : MonoBehaviour
 
     #endregion
 
+    #region Animation Events
+
+    void ActivateDoor()
+    { animDoor.SetInteger("DoorState", 0); }
+
+    void GoToStage()
+    { SceneManager.LoadScene(2); }
+
+    void setToMainMenu()
+    {
+        GlobalScript.gs = GlobalScript.GameStatus.inMainMenu;
+        GlobalScript.mms = GlobalScript.MainMenuStatus.Default;
+        mainMenu.gameObject.SetActive(true);
+    }
+
+    void DefaultAnimEvents()
+    {
+        DisableAnimator();
+        rotClamp = 0;
+    }
+
+    void DisableAnimator()
+    { anim.enabled = false; }
+
+    #endregion
+
     void OptionsScrollLimit()
     {
         if (transform.position.y < minScrollPos)
@@ -153,8 +153,7 @@ public class MMCamera : MonoBehaviour
         else transform.Translate(Vector3.up * (Input.GetAxis("Mouse ScrollWheel") * 2));
     }
 
-    // Have a static list of actions, then add actions to it from other scripts (scripts send actions to the list)
-    // When pressed, the last indexed item action in the list gets executed, then removed
+    // Goes back to the previous state within the main menu
     public void GoBack()
     {
         if (backAction.Count > 0)
@@ -164,6 +163,7 @@ public class MMCamera : MonoBehaviour
         }
     }
 
+    // Quits the Game
     public void QuitGame()
     {Application.Quit();}
 }
