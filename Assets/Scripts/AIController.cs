@@ -44,17 +44,13 @@ public class AIController : MonoBehaviour,idamage
     float hitcooldown = 1.0f;
 
     float gothit = 0.0f;
-    float regen = 0;
+    int viewcircle = 4;
     float find = 0;
-    bool alive = true;
-    GameObject lastobj;
     enum enemyStatus
     {
-        Box,
         Patrol,
         PlayerSighted,
-        OtherSighted,
-        Dead
+        OtherSighted
     }
 
     enemyStatus status;
@@ -65,8 +61,9 @@ public class AIController : MonoBehaviour,idamage
         player = FindObjectOfType<BasicStats>().transform;
         NMA = GetComponent<NavMeshAgent>();
         RandomLocation();
-        stayFor = UnityEngine.Random.Range(5, 11);
+
         health = transform.GetChild(0);
+        stayFor = UnityEngine.Random.Range(5, 11);
     }
 
     void Start()
@@ -74,25 +71,12 @@ public class AIController : MonoBehaviour,idamage
         updatehealth();
         tex.text =health2 + "%";
         health.GetChild(0).transform.rotation = new Quaternion(0, 180, 0, 0);
-        transform.GetChild(1).GetChild(3).transform.gameObject.SetActive(false);
-        alive = true;
-        lastobj = transform.GetChild(0).gameObject;
     }
 
     void Update()
     {
-        status = enemyStatus.Patrol;
-        Vector3 boxdest = new Vector3(0,0,0);
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 4.0f);
-        foreach (Collider col in hitColliders)
-        {
-            if (col.GetComponent<Rigidbody>() != null)
-            {
-                boxdest = col.transform.position - transform.forward * 2;
-                status = enemyStatus.Box;
-            }
-        }
-        //raycast searching for player
+        health.LookAt(player);
+        status = enemyStatus.Patrol;   
         for (int n = 0; n < 9; n++)
         {
             Vector3 place = transform.forward * n + transform.right * (9 - n);
@@ -100,7 +84,7 @@ public class AIController : MonoBehaviour,idamage
             //Debug.DrawRay(transform.position, (place) * (5 / dist), Color.yellow, 5.0f);
             if (Physics.Raycast(transform.position, place, out obj, 50 / dist))
             {
-                if (obj.transform.GetComponent<idamage>() != null && obj.transform.tag == "Player")
+                if (obj.transform.GetComponent<idamage>() != null)
                 {
                     status = enemyStatus.PlayerSighted;
                     find = Time.time;
@@ -114,7 +98,7 @@ public class AIController : MonoBehaviour,idamage
             //Debug.DrawRay(transform.position, (place) * (5 / dist), Color.yellow, 1.0f);
             if (Physics.Raycast(transform.position, place, out obj, 50 / dist))
             {
-                if (obj.transform.GetComponent<idamage>() != null && obj.transform.tag == "Player")
+                if (obj.transform.GetComponent<idamage>() != null)
                 {
                     status = enemyStatus.PlayerSighted;
                     find = Time.time;
@@ -123,79 +107,38 @@ public class AIController : MonoBehaviour,idamage
         }
         if (Physics.Raycast(transform.position, transform.forward, out obj, 5))
         {
-            if (obj.transform.GetComponent<idamage>() != null && obj.transform.tag == "Player")
+            if (obj.transform.GetComponent<idamage>() != null)
             {
                 status = enemyStatus.PlayerSighted;
                 find = Time.time;
             }
         }
-
-        //raycast searching for player
-
-        //checking local enemies enenmystatus
-        if (Distance(transform.position, player.position) < 7 && find + 2 > Time.time) status = enemyStatus.PlayerSighted;
+        if (Distance(transform.position, player.position) < 7 && find + 1 > Time.time) status = enemyStatus.PlayerSighted;
         if (status != enemyStatus.PlayerSighted)
         {
             for (int n = 0; n < mmm.transform.childCount; n++)
             {
                 GameObject aaa = mmm.transform.GetChild(n).gameObject;
-                if (Vector3.Distance(transform.position, aaa.transform.position) < 15)
-                {
-                    if (aaa.GetComponent<AIController>().change() == "playersighted")
-                        status = enemyStatus.OtherSighted;
-                }
+                if (aaa.GetComponent<AIController>().change() == "playersighted")
+                    status = enemyStatus.OtherSighted;
             }
         }
-        //checking local enemies enenmystatus
-        if (health2 <= 0)
-        {
-            alive = false;
-            status = enemyStatus.Dead;
-        }
-        if (alive == false)
-            status = enemyStatus.Dead;
+        // PLAYER'S IN RANGE? SWITCH STATES
+        //if (Distance(transform.position, player.position) < 10) status = enemyStatus.PlayerSighted;
+        //else status = enemyStatus.Patrol;
 
-        if (status != enemyStatus.Dead)
-            transform.GetChild(1).GetChild(4).transform.Rotate((0-transform.GetChild(1).GetChild(4).transform.rotation.eulerAngles.x)*Time.deltaTime, 0, 0);
         // ENEMY STATE ACTIONS
         switch (status)
         {
             case enemyStatus.Patrol:
                 StartCoroutine(MoveAround());
-                transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(false);
-                break;
-            case enemyStatus.Box:
-                NMA.destination = boxdest;
-                transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(false);
-                Collider[] boxes = Physics.OverlapSphere(transform.position, 2.0f);
-                foreach (Collider col in boxes)
-                { 
-                    if (col.transform.GetComponent<ipickup>() != null)
-                    {
-                        ipickup item = col.transform.GetComponent<ipickup>();
-                        lastobj = col.transform.gameObject;
-                        Vector3 boxlift = transform.position + transform.forward * 2f;
-                        item.grab();
-                        item.setpos(new Vector3(boxlift.x, boxlift.y + 0.25f, boxlift.z));
-                        NMA.destination = new Vector3(5,2,20);
-                    }
-                }
-                if (Vector3.Distance(lastobj.transform.position, transform.position) > 2.0f)
-                {
-                    if (lastobj.transform.GetComponent<ipickup>() != null)
-                        lastobj.transform.GetComponent<ipickup>().drop();
-                }
-
                 break;
 
             case enemyStatus.PlayerSighted:
                 NMA.destination = player.position;
-                transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(true);
-                transform.GetChild(1).GetChild(5).transform.Rotate(0, 180*Time.deltaTime, 0);
-                transform.GetChild(1).GetChild(8).transform.Rotate(0, 180 * Time.deltaTime, 0);
                 if (Physics.Raycast(transform.position, transform.forward, out obj, hitrange))
                 {
-                    if (obj.transform.GetComponent<idamage>() != null && obj.transform.tag == "Player")
+                    if (obj.transform.GetComponent<idamage>() != null)
                     {
                         idamage att = obj.transform.GetComponent<idamage>();
                         if (Time.time > lasthit + hitcooldown)
@@ -208,12 +151,9 @@ public class AIController : MonoBehaviour,idamage
                 break;
             case enemyStatus.OtherSighted:
                 NMA.destination = player.position;
-                transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(true);
-                transform.GetChild(1).GetChild(5).transform.Rotate(0, 180 * Time.deltaTime, 0);
-                transform.GetChild(1).GetChild(8).transform.Rotate(0, 180 * Time.deltaTime, 0);
                 if (Physics.Raycast(transform.position, transform.forward, out obj, hitrange))
                 {
-                    if (obj.transform.GetComponent<idamage>() != null && obj.transform.tag == "Player")
+                    if (obj.transform.GetComponent<idamage>() != null)
                     {
                         idamage att = obj.transform.GetComponent<idamage>();
                         if (Time.time > lasthit + hitcooldown)
@@ -224,22 +164,9 @@ public class AIController : MonoBehaviour,idamage
                     }
                 }
                 break;
-            case enemyStatus.Dead:
-                transform.GetChild(0).GetChild(0).GetChild(2).transform.gameObject.SetActive(false);
-                if (transform.GetChild(1).GetChild(4).transform.rotation.eulerAngles.x < 45)
-                    transform.GetChild(1).GetChild(4).transform.Rotate(45 * Time.deltaTime, 0, 0);
-                if (Time.time > regen + 0.5f)
-                {
-                    health2 += 2;
-                    regen = Time.time;
-                }
-                if (health2 >= maxhealth)
-                {
-                    alive = true; tex.text = health2 + "%";
-                }
-                updatehealth();
-                break;
         }
+        if (health2 <= 0)
+            gameObject.SetActive(false);
     }
 
     // RETURNS POSITIVE FLOAT OF FIRST AND SECOND
@@ -282,8 +209,7 @@ public class AIController : MonoBehaviour,idamage
     public void addhealth(int amount)
     {
         if (status == enemyStatus.Patrol) amount = -maxhealth/2;
-        if (status == enemyStatus.Dead) amount = 0;
-        if (Time.time > gothit + 0.5f && amount != 0)
+        if (Time.time > gothit + 0.5f)
         {
             health2 += amount;
             if (health2 < minhealth) health2 = minhealth;

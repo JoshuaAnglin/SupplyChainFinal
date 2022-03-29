@@ -7,18 +7,10 @@ public class MainMenu : MonoBehaviour
 {
     int animationState;
 
-    [Header("(Default) Screen Text")] [SerializeField] Text areaNameTitle, areaNameDescription;
-
-    [Header("(Default) UI Position")][SerializeField] GameObject overview;
-    [Header("Within An Area")] [SerializeField] GameObject inArea;
-
-    [Header("Within a Specific Area")]
-    [SerializeField] GameObject aaStageSelection;
-    [SerializeField] GameObject aaCrafting;
-    [SerializeField] GameObject aaCredits;
-    [SerializeField] GameObject aaOptions;
+    [SerializeField] GameObject overview, inArea, aaStageSelection, aaCrafting, aaCredits, aaOptions;
     [Space] [Space] [Space]
-    
+    public Text anP1Text, aNP2Text;
+
     static public MainMenu inst;
 
     void Awake()
@@ -49,12 +41,6 @@ public class MainMenu : MonoBehaviour
             BackToDefaultPosition();
             MMCamera.backAction.Clear();
         }
-    }
-
-    public void setScreenText(string Title, string Description)
-    {
-        areaNameTitle.text = Title;
-        areaNameDescription.text = Description;
     }
 
     #region 3D Object Buttons

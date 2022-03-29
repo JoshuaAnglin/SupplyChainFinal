@@ -35,6 +35,11 @@ abstract public class GlobalScript : MonoBehaviour
     static public string unPointed = "#222222";
     static public string pointed = "#446DCB";
 
+    // Controls
+
+    static public KeyCode jumpControl = KeyCode.Space;
+    static public KeyCode crouchControl = KeyCode.F;
+
     // UI
 
     static public Color HexColour(string colour)
