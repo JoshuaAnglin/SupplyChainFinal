@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicStats : MonoBehaviour,idamage
+public class BasicStats : MonoBehaviour, idamage
 {
     // this is player stats script
 

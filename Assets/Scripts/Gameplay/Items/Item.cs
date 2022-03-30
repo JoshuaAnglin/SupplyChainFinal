@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SCG.Stats
 {
-    public class Item : MonoBehaviour, IInteractWith
+    public class Item : MonoBehaviour
     {
         public int id;
         public float launchSpeed;

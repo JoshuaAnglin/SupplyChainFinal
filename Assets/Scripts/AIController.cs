@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class AIController : MonoBehaviour,idamage
+public class AIController : MonoBehaviour, idamage
 {
     Vector3 startingPosition;
     Vector3 rand;
