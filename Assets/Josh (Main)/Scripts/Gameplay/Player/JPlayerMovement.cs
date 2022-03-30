@@ -73,6 +73,8 @@ public class JPlayerMovement : MonoBehaviour
             Jump();
             isOnGround = false;
         }
+
+        CraftingMaterialPickup();
     }
 
     void FixedUpdate()
@@ -189,13 +191,11 @@ public class JPlayerMovement : MonoBehaviour
 
         // ----------------------------------------> WILL PROBABLY REPLACE WITH OBJECT POOLING
 
-        /*if (col.gameObject.GetComponent<CraftingMaterial>() != null)
+        if (col.gameObject.GetComponent<CraftingMaterial>() != null)
         {
-            playerHUD.AddToInventory(col.gameObject.GetComponent<CraftingMaterial>());
+            //playerHUD.AddToInventory(col.gameObject.GetComponent<CraftingMaterial>());
             Destroy(col.gameObject);
-        }*/
-
-        
+        } 
     }
 
     void CraftingMaterialPickup()
@@ -206,7 +206,7 @@ public class JPlayerMovement : MonoBehaviour
         {
             if (hit.gameObject.GetComponent<CraftingMaterial>() != null)
             {
-                hit.transform.position = Vector3.MoveTowards(hit.transform.position, transform.position, 2 * Time.deltaTime);
+                hit.transform.position = Vector3.MoveTowards(hit.transform.position, transform.position, 5);
             }
         }
     }
