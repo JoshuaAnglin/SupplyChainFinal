@@ -2,33 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyItem : MonoBehaviour, IPickUp
+[RequireComponent(typeof(Rigidbody))]
+abstract public class KeyItem : MonoBehaviour, IPickUp
 {
-    public KeyItemData info;
-    Rigidbody rb;
-    [SerializeField] float launchSpeed;
+    public KeyItemData infoKID;
+    public Rigidbody rb;
+    public float launchSpeed;
 
-    void Start()
+    /*public void VariableAssign(int KeyItemID)
     {
         rb = GetComponent<Rigidbody>();
-        launchSpeed = LaunchSpeed();
-    }
+        infoKID = ItemRegistration.ir.GetKeyItem(KeyItemID);
+    }*/
 
     public float LaunchSpeed()
-    { return launchSpeed; }
-
-    public void Rotation()
-    {
-        throw new System.NotImplementedException();
-    }
+    {return launchSpeed;}
 
     public bool CanRotate()
-    {
-        throw new System.NotImplementedException();
-    }
+    {return true;}
 
     public GameObject ThisObject()
-    {
-        throw new System.NotImplementedException();
-    }
+    {return rb.gameObject;}
 }

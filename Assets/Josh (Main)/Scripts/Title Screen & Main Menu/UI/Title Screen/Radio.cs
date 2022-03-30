@@ -34,7 +34,7 @@ public class Radio : MonoBehaviour
 
     void Update()
     {
-        if (!stopFlash && Input.anyKey && GlobalScript.gs == GlobalScript.GameStatus.inTitleScreen)
+        if (!stopFlash && Input.anyKey && GlobalScript.state == GlobalScript.GameState.inTitleScreen)
         {
             GameEventSystemMainMenu.GESMainMenu.TitleToMain();
             lgtRadioScreen.intensity = 1;

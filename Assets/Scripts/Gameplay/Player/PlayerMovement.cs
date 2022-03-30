@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         lookAtMouse();
 
-        OpenUI();
+        //OpenUI();
         CraftingMaterialPickup();
     }
 
@@ -102,7 +102,7 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         // May replace with object pooling
-        if (col.gameObject.GetComponent<CraftingMaterial>() != null)
+        /*if (col.gameObject.GetComponent<CraftingMaterial>() != null)
         {
             HUD.hud.AddToInventory(col.gameObject.GetComponent<CraftingMaterial>());
             Destroy(col.gameObject);
@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         {
             HUD.hud.AddToInventory(col.gameObject.GetComponent<KeyItem>());
             Destroy(col.gameObject);
-        }
+        } */
     }
 
     void OnTriggerEnter(Collider other)
@@ -123,7 +123,6 @@ public class PlayerMovement : MonoBehaviour
     #region UI Inventory
     void CraftingMaterialPickup()
     {
-
         Collider[] hits = Physics.OverlapBox(gameObject.transform.position, transform.localScale * 4, Quaternion.identity);
         
         foreach(Collider hit in hits)
@@ -135,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OpenUI()
+    /*void OpenUI()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
             GameEventSystemGameplay.GESGameplay.OpenInventory();
@@ -145,6 +144,6 @@ public class PlayerMovement : MonoBehaviour
 
         // pass into open inventory
 
-    }
+    } */
     #endregion
 }

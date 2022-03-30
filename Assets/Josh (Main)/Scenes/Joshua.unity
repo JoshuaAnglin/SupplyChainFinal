@@ -833,7 +833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &347025463
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3793,19 +3793,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c08739b4dfdba64b8e49b50a9d41f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invetoryScreen: {fileID: 347025462}
-  inventoryPickUps:
-  - {fileID: 435234665}
-  - {fileID: 2082800801}
-  - {fileID: 943215086}
-  - {fileID: 989898300}
-  - {fileID: 1019420363}
-  - {fileID: 264218813}
-  - {fileID: 1403353409}
-  - {fileID: 376634729}
-  - {fileID: 1493030967}
-  - {fileID: 666415031}
-  inventoryWeapons: []
+  uiInventoryScreen: {fileID: 0}
+  uiPauseMenu: {fileID: 0}
+  uiOptions: {fileID: 0}
+  uiStageSelector: {fileID: 0}
 --- !u!1 &1139325892
 GameObject:
   m_ObjectHideFlags: 0

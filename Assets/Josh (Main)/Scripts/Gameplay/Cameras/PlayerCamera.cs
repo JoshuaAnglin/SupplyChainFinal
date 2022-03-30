@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
+    bool moveCamera = true;
+
     float xSense = 10;
     float ySense = 10;
     float xRot, yRot;
@@ -19,7 +21,7 @@ public class PlayerCamera : MonoBehaviour
 
     void Update()
     {
-        CameraMovement();
+        if (moveCamera) CameraMovement();
     }
 
     void CameraMovement()
@@ -36,5 +38,20 @@ public class PlayerCamera : MonoBehaviour
         // Rotation
         cam.transform.rotation = Quaternion.Euler(xRot, yRot, 0);
         orientation.rotation = Quaternion.Euler(0, yRot, 0);
+    }
+
+
+    /// EVENT SUBSCRIPTION (GES - GAMEPLAY) /// 
+
+    void OnEnable()
+    {
+        GameEventSystemGameplay.GESGameplay.onUnpaused += delegate { moveCamera = true; };
+        GameEventSystemGameplay.GESGameplay.onPaused += delegate { moveCamera = false; };
+    }
+
+    void OnDisable()
+    {
+        GameEventSystemGameplay.GESGameplay.onUnpaused -= delegate { moveCamera = true; };
+        GameEventSystemGameplay.GESGameplay.onPaused -= delegate { moveCamera = false; };
     }
 }

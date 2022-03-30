@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class JPlayerMovement : MonoBehaviour
 {
+    public HUD playerHUD;
+
     Rigidbody rb;
-    [SerializeField] Transform orientation;
     [SerializeField] Camera cam;
+    [SerializeField] Transform orientation;
+    Vector3 movement;
 
     [Header("Movement")]
     [SerializeField] float moveSpeed = 6f;
@@ -37,15 +40,11 @@ public class JPlayerMovement : MonoBehaviour
     [SerializeField] float groundDrag = 6f;
     [SerializeField] float airDrag = 2f;
 
-    static public bool pickupOnMe;
-
     [Header("Grounded")]
     int groundLayer = 7;
 
     bool isOnGround = true;
     bool isCrouching;
-
-    Vector3 movement;
 
     enum moveStatus
     {
@@ -84,6 +83,7 @@ public class JPlayerMovement : MonoBehaviour
         else UnCrouch();*/
     }
 
+    #region Player Movement
     void MovementState()
     {
         ActivateSprinting();
@@ -181,16 +181,33 @@ public class JPlayerMovement : MonoBehaviour
         if (isOnGround) rb.AddForce(movement.normalized * moveSpeed * movementMultiplier, ForceMode.Acceleration);   
         else if (!isOnGround) rb.AddForce(movement.normalized * moveSpeed * movementMultiplier * airMultiplier, ForceMode.Acceleration);
     }
+    #endregion
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision col)
     {
-        if (collision.collider.gameObject.layer == groundLayer)
-            isOnGround = true;
+        if (col.collider.gameObject.layer == groundLayer) isOnGround = true;
 
-        if (collision.gameObject.GetComponent<IPickUp>() != null)
+        // ----------------------------------------> WILL PROBABLY REPLACE WITH OBJECT POOLING
+
+        /*if (col.gameObject.GetComponent<CraftingMaterial>() != null)
         {
-            pickupOnMe = true;
+            playerHUD.AddToInventory(col.gameObject.GetComponent<CraftingMaterial>());
+            Destroy(col.gameObject);
+        }*/
+
+        
+    }
+
+    void CraftingMaterialPickup()
+    {
+        Collider[] hits = Physics.OverlapBox(gameObject.transform.position, transform.localScale * 4, Quaternion.identity);
+
+        foreach (Collider hit in hits)
+        {
+            if (hit.gameObject.GetComponent<CraftingMaterial>() != null)
+            {
+                hit.transform.position = Vector3.MoveTowards(hit.transform.position, transform.position, 2 * Time.deltaTime);
+            }
         }
-        else pickupOnMe = false;
     }
 }

@@ -29,13 +29,13 @@ public class MMCamera : MonoBehaviour
 
     void Start()
     {
-        switch (GlobalScript.gs)
+        switch (GlobalScript.state)
         {
-            case GlobalScript.GameStatus.inTitleScreen:
+            case GlobalScript.GameState.inTitleScreen:
                 GameEventSystemMainMenu.GESMainMenu.EnteringGame();
                 break;
 
-            case GlobalScript.GameStatus.inGame:
+            case GlobalScript.GameState.inGame:
                 GameEventSystemMainMenu.GESMainMenu.BackFromStage();
                 break;
         }
@@ -77,9 +77,9 @@ public class MMCamera : MonoBehaviour
 
     void setToMainMenu()
     {
-        GlobalScript.gs = GlobalScript.GameStatus.inMainMenu;
-        GlobalScript.mms = GlobalScript.MainMenuStatus.Default;
+        Debug.Log(1);
         mainMenu.gameObject.SetActive(true);
+        GameEventSystemMainMenu.GESMainMenu.DefaultState();
     }
 
     void DefaultAnimEvents()

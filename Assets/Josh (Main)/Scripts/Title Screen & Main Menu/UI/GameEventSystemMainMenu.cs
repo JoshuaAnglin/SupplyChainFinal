@@ -9,16 +9,22 @@ public class GameEventSystemMainMenu : MonoBehaviour
 {
     static public GameEventSystemMainMenu GESMainMenu;
 
+    public event Action onBackFromStage;
     public event Action onEnteringGame;
     public event Action onTitleToMain;
     public event Action onDefaultState;
     public event Action<int> onCameraTurn;
     public event Action<int> onWithinAnArea;
     public event Action onPlayStage;
-    public event Action onBackFromStage;
 
     void Awake()
-    {GESMainMenu = this;}
+    {
+        Time.timeScale = 1;
+        GESMainMenu = this;
+    }
+
+    public void BackFromStage()
+    { if (onBackFromStage != null) onBackFromStage(); }
 
     public void EnteringGame()
     { if (onEnteringGame != null) onEnteringGame(); }
@@ -37,7 +43,4 @@ public class GameEventSystemMainMenu : MonoBehaviour
 
     public void PlayStage()
     { if (onPlayStage != null) onPlayStage(); }
-
-    public void BackFromStage()
-    { if (onBackFromStage != null) onBackFromStage();}
 }

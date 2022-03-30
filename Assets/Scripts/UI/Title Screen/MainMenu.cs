@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] GameObject overview, inArea, aaStageSelection, aaCrafting, aaCredits, aaOptions;
     [Space] [Space] [Space]
-    public Text anP1Text, aNP2Text;
+    public Text screenTitle, screenDesc;
 
     static public MainMenu inst;
 
@@ -36,7 +36,7 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         // Within Area
-        if (GlobalScript.gs == GlobalScript.GameStatus.inMainMenu && Input.GetKeyDown(KeyCode.Escape) && animationState != -1)
+        if (GlobalScript.state == GlobalScript.GameState.inMainMenu && Input.GetKeyDown(KeyCode.Escape) && animationState != -1)
         {
             BackToDefaultPosition();
             MMCamera.backAction.Clear();
@@ -124,6 +124,7 @@ public class MainMenu : MonoBehaviour
 
     public void DefaultPosition()
     {
+        GlobalScript.state = GlobalScript.GameState.inMainMenu;
         GlobalScript.mms = GlobalScript.MainMenuStatus.Default;
         overview.SetActive(true);
         inArea.SetActive(false);

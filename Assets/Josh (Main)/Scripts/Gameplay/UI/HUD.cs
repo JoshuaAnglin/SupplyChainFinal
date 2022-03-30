@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 public class HUD : MonoBehaviour
 {
     // Health & Level
+    [Header("Left-Hand Side")]
     [SerializeField] Image imgHealth, imgLevel;
     [SerializeField] Text txtHealth, txtLevel;
+    [Space]
+    [Space]
 
     // Time & Whole Inventory
+    [Header("Middle")]
     [SerializeField] Button btnTime;
     float minutes = 5;
     float seconds = 00;
@@ -18,25 +22,23 @@ public class HUD : MonoBehaviour
     [Space]
 
     // HUD Inventory
-
-    [SerializeField] List<Image> hudInventorySlots = new List<Image>();
+    [Header("Right-Hand Side")]
     [SerializeField] Text currentItem;
-
-    static public HUD hud;
+    [SerializeField] GameObject sectionKeyItem;
+    [SerializeField] GameObject sectionWeapon;
 
     void Awake()
     {
-        GlobalScript.gs = GlobalScript.GameStatus.inGame;
-        hud = GetComponent<HUD>();
+        GlobalScript.state = GlobalScript.GameState.inGame;
+        sectionKeyItem.SetActive(true);
     }
 
     void Update()
     {
         Timer();
-        if (Input.GetKeyDown(KeyCode.Alpha4)) SceneManager.LoadScene(0);
 
-        imgHealth.fillAmount = Mathf.Lerp(imgHealth.fillAmount, 0, 2f * Time.deltaTime);
-        txtHealth.text = "HP (" + (imgHealth.fillAmount * 100).ToString("00") + "%)";
+        //imgHealth.fillAmount = Mathf.Lerp(imgHealth.fillAmount, 0, 2f * Time.deltaTime);
+        //txtHealth.text = "HP (" + (imgHealth.fillAmount * 100).ToString("00") + "%)";
     }
 
     // Countdown Timer
@@ -61,34 +63,39 @@ public class HUD : MonoBehaviour
         }
     }
 
-    // HUD Inventory
-    public void AddToInventory<T>(T cm) where T : MonoBehaviour
+    #region Adding To HUD
+    // Switch between both right HUDs
+    void SwitchRightHUD(bool isKeyItemActive, bool isWeaponActive)
     {
-        for (int a = 0; a < ItemRegistration.ir.storageWIPickUp.Length; a++)
-        {
-            if (ItemRegistration.ir.storageWIPickUp[a] == -1)
-            {
-                if (cm.GetComponent<CraftingMaterial>())
-                {ItemRegistration.ir.storageWIPickUp[a] = cm.GetComponent<CraftingMaterial>().info.GivenID;}
-
-                else if (cm.GetComponent<KeyItem>())
-                {ItemRegistration.ir.storageWIPickUp[a] = cm.GetComponent<KeyItem>().info.GivenID; }
-
-                RefreshGameplayHUD();
-                break;
-            }
-        }
+        sectionKeyItem.SetActive(isKeyItemActive);
+        sectionWeapon.SetActive(isWeaponActive);
     }
+
+    // Add Key Item to HUD
+    public void AddToHUD(KeyItem ki)
+    {
+        SwitchRightHUD(true, false);
+        sectionKeyItem.transform.GetChild(0).GetComponent<Image>().sprite = ki.infoKID.GivenSprite;
+        currentItem.text = ki.infoKID.GivenName;
+    }
+
+    // Remove Key Item to HUD
+    public void RemoveFromHUD()
+    {
+        sectionKeyItem.transform.GetChild(0).GetComponent<Image>().sprite = null;
+        currentItem.text = "";
+    }
+    #endregion
 
     public void RemoveFromInventory(int pos)
     {
-        hudInventorySlots[pos].GetComponent<Image>().sprite = null;
-        ItemRegistration.ir.storageWIPickUp[pos] = -1;   
+        //hudInventorySlots[pos].GetComponent<Image>().sprite = null;
+        //ItemRegistration.ir.storageWIPickUp[pos] = -1;   
     }
 
     void RefreshGameplayHUD()
     {
-        List<Sprite> images = new List<Sprite>();
+        /*List<Sprite> images = new List<Sprite>();
 
         for(int a = 0; a < hudInventorySlots.Count; a++)
         {
@@ -107,6 +114,6 @@ public class HUD : MonoBehaviour
         }
 
         for(int b = 0; b < images.Count; b++)
-        {hudInventorySlots[b].sprite = images[b];}
+        {hudInventorySlots[b].sprite = images[b];} */
     }
 }

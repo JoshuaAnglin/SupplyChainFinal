@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 abstract public class GlobalScript : MonoBehaviour
 {
-    public enum GameStatus
+    public enum GameState
     {
         inTitleScreen,
         inMainMenu,
         inGame
     }
-    static public GameStatus gs;
+    static public GameState state;
 
     public enum MainMenuStatus
     {
@@ -27,6 +27,13 @@ abstract public class GlobalScript : MonoBehaviour
     }
     static public MainMenuStatus mms;
 
+    public enum GameplayStatus
+    {
+        Gameplay,
+        Paused
+    }
+    static public GameplayStatus gps;
+
     static public float musicVolume = 50f;
     static public float soundEffectsVolume = 50f;
 
@@ -37,8 +44,11 @@ abstract public class GlobalScript : MonoBehaviour
 
     // Controls
 
-    static public KeyCode jumpControl = KeyCode.Space;
-    static public KeyCode crouchControl = KeyCode.F;
+    static public KeyCode jumpControl = KeyCode.Space; // change later
+    static public KeyCode crouchControl = KeyCode.F; // change later
+
+    static public KeyCode pauseUnpause = KeyCode.Escape;
+    static public KeyCode openInventory = KeyCode.Tab;
 
     // UI
 

@@ -5,11 +5,15 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     RaycastHit itemHit;
-    float rayDist = 20f;
+    float rayDist = 15f;
+    HUD playerHUD;
 
-    Transform hit;
+    //Transform hit;
     Transform holding;
     Rigidbody rbHolding;
+
+    private void Awake()
+    {playerHUD = transform.parent.GetComponent<JPlayerMovement>().playerHUD;}
 
     void Update()
     {
@@ -25,19 +29,18 @@ public class PlayerCollision : MonoBehaviour
             // If it holds the interface 'IPickUp'
             if (itemHit.transform.GetComponent<IPickUp>() != null)
             {
-                // Change it's layer to 'Hovered
-                hit = itemHit.transform;
-                hit.transform.gameObject.layer = LayerMask.NameToLayer("Hovered");
-
-                // If the player isn't holding an item, set the raycasted item to 'holding'
-                if (!holding) holding = itemHit.transform;
+                if (!holding)
+                {
+                    holding = itemHit.transform;
+                    holding.transform.gameObject.layer = LayerMask.NameToLayer("Hovered");
+                }
             }
 
-            // {CAUSES FLICKERING}
-            else if (hit)
+            // IT'S THIS THAT'S THE ISSUE WITH THE ITEM BEING GRABBED WHILST RAYCASTING ISN'T ON IT
+            else if (itemHit.transform.gameObject == null & holding != null)
             {
-                hit.transform.gameObject.layer = LayerMask.NameToLayer("Default");
-                hit = null;
+                holding.transform.gameObject.layer = LayerMask.NameToLayer("Default");
+                holding = null;
             }
         }
 
@@ -54,6 +57,8 @@ public class PlayerCollision : MonoBehaviour
         {
             rbHolding = holding.GetComponent<Rigidbody>();
             holding.GetComponent<Rigidbody>().freezeRotation = true;
+
+            playerHUD.AddToHUD(holding.GetComponent<KeyItem>());
         }
 
         Physics.IgnoreCollision(transform.parent.GetComponent<Collider>(), holding.GetComponent<Collider>(), true);
@@ -74,6 +79,8 @@ public class PlayerCollision : MonoBehaviour
 
         if (rbHolding != null)
         {
+            playerHUD.RemoveFromHUD();
+            holding.transform.gameObject.layer = LayerMask.NameToLayer("Default");
             rbHolding.freezeRotation = false;
             rbHolding = null;
             holding = null;

@@ -28,9 +28,23 @@ public class ItemRegistration : MonoBehaviour
     public CraftingMaterialData GetCraftingMaterial(int id)
     {
         foreach (CraftingMaterialData cm in CraftingMaterials)
-        {
             if (id == cm.GivenID) return cm;
-        }
+
+        return null;
+    }
+
+    public KeyItemData GetKeyItem(int id)
+    {
+        foreach (KeyItemData ki in KeyItems)
+            if (id == ki.GivenID) return ki;
+
+        return null;
+    }
+
+    public WeaponData GetWeaponData(int id)
+    {
+        foreach (WeaponData weapon in Weapons)
+            if (id == weapon.GivenID) return weapon;
 
         return null;
     }

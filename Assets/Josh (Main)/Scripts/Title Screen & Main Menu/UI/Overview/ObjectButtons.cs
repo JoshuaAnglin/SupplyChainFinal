@@ -11,16 +11,16 @@ public class ObjectButtons : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (GlobalScript.gs == GlobalScript.GameStatus.inMainMenu)
+        if (GlobalScript.state == GlobalScript.GameState.inMainMenu)
         {
-            MainMenu.inst.anP1Text.text = Title;
-            MainMenu.inst.aNP2Text.text = Description;
+            MainMenu.inst.screenTitle.text = Title;
+            MainMenu.inst.screenDesc.text = Description;
         }
     }
 
     void OnMouseDown()
     {
-        if (GlobalScript.gs == GlobalScript.GameStatus.inMainMenu && GlobalScript.mms == GlobalScript.MainMenuStatus.Default)
+        if (GlobalScript.state == GlobalScript.GameState.inMainMenu && GlobalScript.mms == GlobalScript.MainMenuStatus.Default)
             action.Invoke();
     }
 }
